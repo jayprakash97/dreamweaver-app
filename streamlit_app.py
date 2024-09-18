@@ -2,7 +2,7 @@ import streamlit as st
 
 with st.form("form_key"):
     st.write("What would like to order")
-    appetizer = st.selectbox("Appetizers", options=["choice1", "choice2", "choice3"])
+    Gender = st.selectbox("Gender", options=["Male", "Female", "Don't want to share"])
     main = st.selectbox("Main course", options=["choice1", "choice2", "choice3"])
     dessert = st.selectbox("Dessert", options=["choice1", "choice2", "choice3"])
 
