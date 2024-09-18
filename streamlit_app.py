@@ -1,38 +1,34 @@
 import streamlit as st
 
-# Give your app a title
-st.title("Your title")
+with st.form("form_key"):
+    st.write("What would like to order")
+    appetizer = st.selectbox("Appetizers", options=["choice1", "choice2", "choice3"])
+    main = st.selectbox("Main course", options=["choice1", "choice2", "choice3"])
+    dessert = st.selectbox("Dessert", options=["choice1", "choice2", "choice3"])
 
-# Header
-st.header("Main header")
+    wine = st.checkbox("Are you bringing wine?")
 
-# Subheader
-st.subheader("This is a subheader")
+    visit_date = st.date_input("When are you coming?")
 
-# Markdown
-st.markdown("This is markdown **text**")
-st.markdown("# Header1")
-st.markdown("## Header 2")
-st.markdown("### Header 3")
+    visit_time = st.time_input("At what time are you coming?")
 
-# Caption
-st.caption("This is a caption")
+    allergies = st.text_area("Any allergies?", placeholder="Leave us a note for allergies")
 
-# Code block
-st.code("""import pandas as pd
-pd.read_csv(my_csv_file)
+    submit_btn = st.form_submit_button("Submit")
+
+st.write(f"""Your order summary:
+
+Appetizer: {appetizer}
+
+Main course: {main}
+
+Dessert: {dessert}
+
+Are you bringing your own wine: {"yes" if wine else "no"}
+
+Date of visit: {visit_date}
+
+Time of visit: {visit_time}
+
+Allergies: {allergies}
 """)
-
-# Preformatted text
-st.text("Some text")
-
-# LaTeX
-st.latex("x = 2^2")
-
-# Divider
-st.text('Text above divider')
-st.divider()
-st.text('Text below divider')
-
-#st.write
-st.write('Some text')
