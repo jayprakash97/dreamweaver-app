@@ -1,34 +1,28 @@
 import streamlit as st
 
 with st.form("form_key"):
-    st.write("What would like to order")
-    Gender = st.selectbox("Gender", options=["Male", "Female", "Don't want to share"])
-    main = st.selectbox("Main course", options=["choice1", "choice2", "choice3"])
-    dessert = st.selectbox("Dessert", options=["choice1", "choice2", "choice3"])
-
-    wine = st.checkbox("Are you bringing wine?")
-
-    visit_date = st.date_input("When are you coming?")
-
-    visit_time = st.time_input("At what time are you coming?")
-
-    allergies = st.text_area("Any allergies?", placeholder="Leave us a note for allergies")
-
+    st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
+    
+    gender = st.selectbox("Your Gender", options=["Male", "Female", "Don't want to share"])
+    main_character = st.data_input("What will be the name of main character?")
+    audience = st.selectbox("Audience", options=["children", "young adult", "adult", "senior"]
+    story_setting = st.selectbox("Story Setthing", options=["Magical Kingdoms", "Underwater Kingdoms", "Pirate ships", "Exotic locations", "Imaginary world", "Digital words", "Others"])
+    story_type = st.selectbox("Story Type", options=["Fantacy", "Fairy Tales", "Mythology", "Bedtime stories", "Adventure", "Mystery", "Love", "Horror", ])
+    story_theme = st.text_area("What would be topic of the story?", placeholder="Leave brief idea of a story")
+    moral_lesson = st.data_input("What would be the moral of this story?")
+    story_length = st.selectbox("Story Length", options=["300 Characters", "400 characters", "500 characters"])
+    
     submit_btn = st.form_submit_button("Submit")
 
-st.write(f"""Your order summary:
+st.write(f"""Your story summary:
+Audience: {audience}
+Main Character: {main_character}
+Story Setting: {story_setting}
+Story Type: {story_type}
+Story Theme: {story_theme}
+Moral Lesson: {moral_lesson}
+Story Size (in words) : {story_length}
+]
 
-Appetizer: {appetizer}
-
-Main course: {main}
-
-Dessert: {dessert}
-
-Are you bringing your own wine: {"yes" if wine else "no"}
-
-Date of visit: {visit_date}
-
-Time of visit: {visit_time}
-
-Allergies: {allergies}
+Your story is here
 """)
