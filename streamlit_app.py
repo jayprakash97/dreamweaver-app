@@ -2,9 +2,9 @@ import streamlit as st
 
 with st.form("form_key"):
     st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
-    
     gender = st.selectbox("Your Gender", options=["Male", "Female", "Don't want to share"])
-    main_character = st.data_input("What will be the name of main character?")
+    main_character = st.text_input("What will be the name of the main character?")
+    # main_character = st.data_input("What will be the name of main character?")
     # audience = st.selectbox("Audience", options=["children", "young adult", "adult", "senior"]
     story_setting = st.selectbox("Story Setthing", options=["Magical Kingdoms", "Underwater Kingdoms", "Pirate ships", "Exotic locations", "Imaginary world", "Digital words", "Others"])
     story_type = st.selectbox("Story Type", options=["Fantacy", "Fairy Tales", "Mythology", "Bedtime stories", "Adventure", "Mystery", "Love", "Horror", ])
