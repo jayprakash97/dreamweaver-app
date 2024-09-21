@@ -15,10 +15,10 @@ with st.form("form_key"):
 
 st.write(f"""Your story summary:\n
 Audience: {audience} \n
-Main Character: {main_character}
-Story Setting: {story_setting}
-Story Type: {story_type}
-Story Theme: {story_theme}
-Moral Lesson: {moral_lesson}
+Main Character: {main_character} \n
+Story Setting: {story_setting} \n
+Story Type: {story_type} \n
+Story Theme: {story_theme} \n
+Moral Lesson: {moral_lesson} \n
 Story Size (in words) : {story_length}
 """)
