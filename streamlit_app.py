@@ -13,8 +13,8 @@ with st.form("form_key"):
     
     submit_btn = st.form_submit_button("Submit")
 
-st.write(f"""Your story summary:
-Audience: {audience}
+st.write(f"""Your story summary:\n
+Audience: {audience} \n
 Main Character: {main_character}
 Story Setting: {story_setting}
 Story Type: {story_type}
