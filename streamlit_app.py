@@ -8,7 +8,7 @@ with st.form("form_key"):
     story_setting = st.selectbox("Story Setthing", options=["Magical Kingdoms", "Underwater Kingdoms", "Pirate ships", "Exotic locations", "Imaginary world", "Digital words", "Others"])
     story_type = st.selectbox("Story Type", options=["Fantacy", "Fairy Tales", "Mythology", "Bedtime stories", "Adventure", "Mystery", "Love", "Horror", ])
     story_theme = st.text_area("What would be topic of the story?", placeholder="Leave brief idea of a story")
-    moral_lesson = st.data_input("What would be the moral of this story?")
+    moral_lesson = st.text_input("What would be the moral of this story?")
     story_length = st.selectbox("Story Length", options=["300 Characters", "400 characters", "500 characters"])
     
     submit_btn = st.form_submit_button("Submit")
@@ -21,7 +21,4 @@ Story Type: {story_type}
 Story Theme: {story_theme}
 Moral Lesson: {moral_lesson}
 Story Size (in words) : {story_length}
-]
-
-Your story is here
 """)
