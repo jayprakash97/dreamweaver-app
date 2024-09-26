@@ -32,8 +32,7 @@ Moral Lesson: {moral_lesson} \n
 Story Size (in words) : {story_length}
 """)
 
-
- 
+story_theme_value = st.text_input( value=story_theme)
 
 # AWS API URL for POST request
 AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
@@ -49,7 +48,7 @@ if submit_btn:  # st.button("Submit"):
     payload = {
        "story_type" : story_type,
        "main_character" : main_character,
-       "story_theme" : 'Brushing the tooth',
+       "story_theme" : story_theme_value # 'Brushing the tooth',
        "moral_lesson" : moral_lesson,
        "setting" : story_setting
       }
