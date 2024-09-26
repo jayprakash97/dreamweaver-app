@@ -3,11 +3,11 @@ import requests
 import json
  
 # AWS API URL for POST request
-AWS_API_URL = "https://your-api-id.execute-api.region.amazonaws.com/your-stage/resource"
+AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
  
 # Optional: Set up headers (if using an API key or authentication)
 headers = {
-    "x-api-key": "your-api-key",  # Remove if your API doesn't require a key
+ #   "x-api-key": "your-api-key",  # Remove if your API doesn't require a key
     "Content-Type": "application/json",  # Specify the content type for the POST request
 }
  
@@ -22,10 +22,13 @@ age = st.number_input("Enter your age", min_value=0)
 if st.button("Submit"):
     # Create the payload (data) to be sent in the POST request
     payload = {
-        "name": name,
-        "age": age
+     "story_type" : "children",
+     "main_character" : "Laila",
+     "story_theme" : "Brushing the tooth",
+     "moral_lesson" : "develop hygiene practices",
+     "setting" : "megical kingdom"
     }
- 
+
     try:
         # Make a POST request to the AWS API
         response = requests.post(AWS_API_URL, headers=headers, json=payload)
@@ -40,4 +43,4 @@ if st.button("Submit"):
             st.write(response.text)  # Display the error message from API
     except Exception as e:
         st.error(f"An error occurred: {str(e)}")
-has context menu
+# has context menu
