@@ -3,7 +3,7 @@ import requests
 import json
 
 # Streamlit app title
-st.title("Streamlit POST Request to AWS API")
+st.title("Streamlit POST Request to AWS API 2")
  
 # # Create input fields to collect data for the POST request body
 # name = st.text_input("Enter your name")
@@ -47,6 +47,7 @@ headers = {
 # Create a button that triggers the POST request
 if submit_btn:  # st.button("Submit"):
     # Create the payload (data) to be sent in the POST request
+ 
     payload = {
      "story_type" : {story_type},
      "main_character" : {main_character},
@@ -54,11 +55,13 @@ if submit_btn:  # st.button("Submit"):
      "moral_lesson" : {moral_lesson},
      "setting" :  {story_setting}
     }
-
+ 
     try:
+        json_data = json.dumps(data)
+        print(json_data)
         # Make a POST request to the AWS API
         response = requests.post(AWS_API_URL, headers=headers, json=payload)
- 
+    
         # Check if the request was successful (status code 200-299)
         if response.status_code == 200:
             data = response.json()  # Parse JSON response
