@@ -47,18 +47,18 @@ headers = {
 # Create a button that triggers the POST request
 if submit_btn:  # st.button("Submit"):
     payload = {
-       "story_type" : "children",
+       "story_type" : story_type,
        "main_character" : main_character,
-       "story_theme" : "Brushing the tooth",
-       "moral_lesson" : "develop hygiene practices",
-       "setting" : "megical kingdom"
+       "story_theme" : story_theme,
+       "moral_lesson" : moral_lesson,
+       "setting" : story_setting
       }
     # Create the payload (data) to be sent in the POST request
  
     # payload = {
     #  "story_type" : {story_type},
     #  "main_character" : {main_character},
-    #  "story_theme" :{story_theme},
+    #  "story_theme" : story_theme,
     #  "moral_lesson" : {moral_lesson},
     #  "setting" :  {story_setting}
     # }
