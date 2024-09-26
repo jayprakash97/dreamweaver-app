@@ -48,7 +48,7 @@ if submit_btn:  # st.button("Submit"):
     payload = {
        "story_type" : story_type,
        "main_character" : main_character,
-       "story_theme" : story_theme_value # 'Brushing the tooth',
+       "story_theme" : story_theme_value, # 'Brushing the tooth',
        "moral_lesson" : moral_lesson,
        "setting" : story_setting
       }
