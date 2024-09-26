@@ -45,7 +45,7 @@ headers = {
 }
  
 # Create a button that triggers the POST request
-if st.button("Submit"):
+if submit_btn:  # st.button("Submit"):
     # Create the payload (data) to be sent in the POST request
     payload = {
      "story_type" : {story_type},
