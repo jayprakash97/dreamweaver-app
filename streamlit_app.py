@@ -74,10 +74,18 @@ if submit_btn:  # st.button("Submit"):
         if response.status_code == 200:
             data = response.json()  # Parse JSON response
             st.success("POST request successful!")
-            st.write("Response from API:", data)
+     
+            # Extract the body content, which is a JSON string itself
+            body_content = json.loads(data["body"])
+            st.write("Response from API:", body_content)
+            # Extract the story text
+            story_text = body_content["text"]
+            st.title("Children's Story")
+            st.write(story_text)
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
     except Exception as e:
         st.error(f"An error occurred: {str(e)}")
+
 
