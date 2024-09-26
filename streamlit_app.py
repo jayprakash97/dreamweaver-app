@@ -1,4 +1,13 @@
 import streamlit as st
+import requests
+import json
+
+# Streamlit app title
+st.title("Streamlit POST Request to AWS API")
+ 
+# # Create input fields to collect data for the POST request body
+# name = st.text_input("Enter your name")
+# age = st.number_input("Enter your age", min_value=0)
 
 with st.form("form_key"):
     st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
@@ -22,3 +31,42 @@ Story Theme: {story_theme} \n
 Moral Lesson: {moral_lesson} \n
 Story Size (in words) : {story_length}
 """)
+
+
+ 
+
+# AWS API URL for POST request
+AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
+ 
+# Optional: Set up headers (if using an API key or authentication)
+headers = {
+ #   "x-api-key": "your-api-key",  # Remove if your API doesn't require a key
+    "Content-Type": "application/json",  # Specify the content type for the POST request
+}
+ 
+# Create a button that triggers the POST request
+if st.button("Submit"):
+    # Create the payload (data) to be sent in the POST request
+    payload = {
+     "story_type" : {story_type},
+     "main_character" : {main_character},
+     "story_theme" :{story_theme},
+     "moral_lesson" : {moral_lesson},
+     "setting" :  {story_setting}
+    }
+
+    try:
+        # Make a POST request to the AWS API
+        response = requests.post(AWS_API_URL, headers=headers, json=payload)
+ 
+        # Check if the request was successful (status code 200-299)
+        if response.status_code == 200:
+            data = response.json()  # Parse JSON response
+            st.success("POST request successful!")
+            st.write("Response from API:", data)
+        else:
+            st.error(f"Failed with status code: {response.status_code}")
+            st.write(response.text)  # Display the error message from API
+    except Exception as e:
+        st.error(f"An error occurred: {str(e)}")
+
