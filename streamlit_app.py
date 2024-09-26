@@ -46,6 +46,13 @@ headers = {
  
 # Create a button that triggers the POST request
 if submit_btn:  # st.button("Submit"):
+    payload = {
+       "story_type" : "children",
+       "main_character" : "Laila",
+       "story_theme" : "Brushing the tooth",
+       "moral_lesson" : "develop hygiene practices",
+       "setting" : "megical kingdom"
+      }
     # Create the payload (data) to be sent in the POST request
  
     # payload = {
@@ -56,13 +63,7 @@ if submit_btn:  # st.button("Submit"):
     #  "setting" :  {story_setting}
     # }
 
-      payload = {
-       "story_type" : "children",
-       "main_character" : "Laila",
-       "story_theme" : "Brushing the tooth",
-       "moral_lesson" : "develop hygiene practices",
-       "setting" : "megical kingdom"
-      }
+      
     try:
         json_data = payload
         print(payload)
