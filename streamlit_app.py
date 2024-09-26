@@ -57,10 +57,10 @@ if submit_btn:  # st.button("Submit"):
     }
  
     try:
-        json_data = json.dumps(data)
+        json_data = json.dumps(payload)
         print(json_data)
         # Make a POST request to the AWS API
-        response = requests.post(AWS_API_URL, headers=headers, json=payload)
+        response = requests.post(AWS_API_URL, headers=headers, json=json_data)
     
         # Check if the request was successful (status code 200-299)
         if response.status_code == 200:
