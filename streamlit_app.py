@@ -16,7 +16,7 @@ with st.form("form_key"):
     audience = st.selectbox("Audience", options=["children", "young adult", "adult", "senior"])
     story_setting = st.selectbox("Story Setthing", options=["Magical Kingdoms", "Underwater Kingdoms", "Pirate ships", "Exotic locations", "Imaginary world", "Digital words", "Others"])
     story_type = st.selectbox("Story Type", options=["Fantacy", "Fairy Tales", "Mythology", "Bedtime stories", "Adventure", "Mystery", "Love", "Horror", ])
-    story_theme = st.text_area("What would be topic of the story?", placeholder="Leave brief idea of a story")
+    story_theme = st.text_input("What would be topic of the story?", placeholder="Leave brief idea of a story")
     moral_lesson = st.text_input("What would be the moral of this story?")
     story_length = st.selectbox("Story Length", options=["300 Characters", "400 characters", "500 characters"])
     
@@ -32,7 +32,7 @@ Moral Lesson: {moral_lesson} \n
 Story Size (in words) : {story_length}
 """)
 
-story_theme_value = st.text_input( value=story_theme)
+# story_theme_value = st.text_input( value=story_theme)
 
 # AWS API URL for POST request
 AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
@@ -48,7 +48,7 @@ if submit_btn:  # st.button("Submit"):
     payload = {
        "story_type" : story_type,
        "main_character" : main_character,
-       "story_theme" : story_theme_value, # 'Brushing the tooth',
+       "story_theme" : story_theme, # 'Brushing the tooth',
        "moral_lesson" : moral_lesson,
        "setting" : story_setting
       }
