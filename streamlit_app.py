@@ -66,6 +66,7 @@ if submit_btn:  # st.button("Submit"):
  
     try:
        # json_data = json.dumps(payload)
+        json_data = payload
         print(payload)
         # Make a POST request to the AWS API
         response = requests.post(AWS_API_URL, headers=headers, json=json_data)
