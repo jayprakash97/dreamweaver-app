@@ -56,16 +56,14 @@ if submit_btn:  # st.button("Submit"):
     #  "setting" :  {story_setting}
     # }
 
-     payload = {
-      "story_type" : "children",
-      "main_character" : "Laila",
-      "story_theme" : "Brushing the tooth",
-      "moral_lesson" : "develop hygiene practices",
-      "setting" : "megical kingdom"
-     }
- 
+      payload = {
+       "story_type" : "children",
+       "main_character" : "Laila",
+       "story_theme" : "Brushing the tooth",
+       "moral_lesson" : "develop hygiene practices",
+       "setting" : "megical kingdom"
+      }
     try:
-        #json_data = json.dumps(payload)
         json_data = payload
         print(payload)
         # Make a POST request to the AWS API
