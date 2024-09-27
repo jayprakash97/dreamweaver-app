@@ -1,6 +1,9 @@
 import streamlit as st
 import requests
 import json
+import base64 
+from io import BytesIO 
+from PIL import Image
 
 # Streamlit app title
 st.title("Streamlit POST Request to AWS API 3")
@@ -81,6 +84,22 @@ if submit_btn:  # st.button("Submit"):
             story_text = body_content["text"]
             st.title("Children's Story")
             st.write(story_text)
+         
+            # Base64 encoded image string
+            base64_string = body_content["image_data_decode"]
+             
+            # Decode the base64 string
+            image_data = base64.b64decode(base64_string)
+             
+            # Convert the binary data into an image using PIL
+            image = Image.open(BytesIO(image_data))
+             
+            # Display the image in Streamlit
+            st.image(image, caption='Decoded Image', use_column_width=True)
+             
+            # Alternatively, you can directly pass the binary image data
+            # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
+
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
