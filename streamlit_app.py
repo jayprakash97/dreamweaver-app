@@ -50,7 +50,8 @@ if submit_btn:  # st.button("Submit"):
        "main_character" : main_character,
        "story_theme" : story_theme, # 'Brushing the tooth',
        "moral_lesson" : moral_lesson,
-       "setting" : story_setting
+       "setting" : story_setting, 
+       "word_count" : story_length
       }
     # Create the payload (data) to be sent in the POST request
  
