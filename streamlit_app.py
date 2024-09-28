@@ -7,11 +7,9 @@ from PIL import Image
 
 st.set_page_config(page_title="Multiple App", page_icon="*",)
 
+# Streamlit app title
 st.title("Welcome to WanderScriber")
 st.sidebar.success("Select a page above.")
-
-# Streamlit app title
-st.title("Streamlit POST Request to AWS API 3")
  
 # # Create input fields to collect data for the POST request body
 # name = st.text_input("Enter your name")
