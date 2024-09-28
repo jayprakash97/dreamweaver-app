@@ -7,7 +7,7 @@ from PIL import Image
 
 st.set_page_config(page_title="Multiple App", page_icon="*",)
 
-st.title("Main Page")
+st.title("Welcome to WanderScriber")
 st.sidebar.success("Select a page above.")
 
 # Streamlit app title
