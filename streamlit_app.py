@@ -5,10 +5,10 @@ import base64
 from io import BytesIO 
 from PIL import Image
 
-st.set_page_config(page_title="Multiple App", page_icon="*",)
+st.set_page_config(page_title="Multiple App", page_icon="👌",)
 
 # Streamlit app title
-st.title("Welcome to WanderScriber")
+st.title("Welcome to WonderScriber")
 st.sidebar.success("Select a page above.")
  
 # # Create input fields to collect data for the POST request body
