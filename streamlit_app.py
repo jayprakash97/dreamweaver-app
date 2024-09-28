@@ -5,6 +5,11 @@ import base64
 from io import BytesIO 
 from PIL import Image
 
+st.set_page_config(page_title="Multiple App", page_icon="*",)
+
+st.title('Main Page")
+st.sidebar.success("Select a page above.")
+
 # Streamlit app title
 st.title("Streamlit POST Request to AWS API 3")
  
