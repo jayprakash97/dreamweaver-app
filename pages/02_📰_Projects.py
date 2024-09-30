@@ -2,7 +2,7 @@ import streamlit as st
 
 validation_query_response = {
   0: {"query": "jay 300",
-      "gold_response": " "}
+      "gold_response": "story about etc "},
   1: {"query": "Mike 400",
       "gold_response": " "}
 }
