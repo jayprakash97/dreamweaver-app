@@ -112,3 +112,15 @@ st.sidebar.success("Select a page above.")
 st.sidebar.text("Made with 💕 by WonderScribe")
 
 
+#========================
+# Use regex to extract points based on numbering (1., 2., etc.)
+points = re.split(r'\d\.\s', paragraph)
+ 
+# Remove the first element which will be an empty string due to splitting
+points = [point.strip() for point in points if point.strip()]
+ 
+# Print the extracted points one by one
+for i, point in enumerate(points, 1):
+    print(f"Point {i}: {point}")
+
+
