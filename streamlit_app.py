@@ -6,7 +6,7 @@ from io import BytesIO
 from PIL import Image
 
 st.set_page_config(page_title="Multiple App", page_icon="👌")
-print(st.__version__)
+st.write(print(st.__version__))
 col1, col2  = st.columns(2, vertical_alignment="center")
 # col1, col2 = st.columns(2, horizontal_alignment="left")
 with col1:
@@ -34,15 +34,15 @@ with st.form("form_key"):
     
     submit_btn = st.form_submit_button("Submit")
 
-st.write(f"""Your story summary:\n
-Audience: {audience} \n
-Main Character: {main_character} \n
-Story Setting: {story_setting} \n
-Story Type: {story_type} \n
-Story Theme: {story_theme} \n
-Moral Lesson: {moral_lesson} \n
-Story Size (in words) : {story_length}
-""")
+# st.write(f"""Your story summary:\n
+# Audience: {audience} \n
+# Main Character: {main_character} \n
+# Story Setting: {story_setting} \n
+# Story Type: {story_type} \n
+# Story Theme: {story_theme} \n
+# Moral Lesson: {moral_lesson} \n
+# Story Size (in words) : {story_length}
+# """)
 
 # story_theme_value = st.text_input( value=story_theme)
 
