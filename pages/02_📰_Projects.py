@@ -5,6 +5,7 @@ validation_query_response = {
       "gold_response": " "}
   1: {"query": "Mike 400",
       "gold_response": " "}
+}
 
 # Function to evaluate RAG system using ROUGE
 def rouge_scores(predicated_response, gold_response):
