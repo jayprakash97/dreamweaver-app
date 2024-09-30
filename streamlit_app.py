@@ -11,8 +11,6 @@ print(st.__version__)
 # col1, col2 = st.columns(2, horizontal_alignment="left")
 with col1:
     st.image("pages/WS_Logo.png", width=100)
-with col2:
-    # st.title("Welcome to WonderScribe Page")
    
 
 
