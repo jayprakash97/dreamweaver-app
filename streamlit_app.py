@@ -6,8 +6,9 @@ from io import BytesIO
 from PIL import Image
 
 st.set_page_config(page_title="Multiple App", page_icon="👌")
-# col1, col2  = st.columns(2, vertical_alignment="center")
-col1, col2 = st.columns(2, horizontal_alignment="left")
+col1, col2  = st.columns(2, vertical_alignment="center")
+print(st.__version__)
+# col1, col2 = st.columns(2, horizontal_alignment="left")
 with col1:
     st.image("pages/WS_Logo.png", width=100)
 with col2:
