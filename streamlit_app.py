@@ -23,6 +23,12 @@ st.title("Welcome to WonderScribe Page")
 # name = st.text_input("Enter your name")
 # age = st.number_input("Enter your age", min_value=0)
 
+def image_decode(image_data_decode):
+    image_data = base64.b64decode(image_data_decode)
+    return mage.open(BytesIO(image_data))
+
+
+
 with st.form("form_key"):
     st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
     gender = st.selectbox("Your Gender", options=["Male", "Female", "Don't want to share"])
@@ -89,16 +95,26 @@ if submit_btn:  # st.button("Submit"):
             st.write(story_text)
          
             # Base64 encoded image string
-            base64_string = body_content["image_data_decode"]
+            image1 = image_decode(body_content["image_data_decode1"])
+            st.image(image1, caption='Decoded Image', use_column_width=True)
+
+            image2 = image_decode(body_content["image_data_decode2"])
+            st.image(image2, caption='Decoded Image', use_column_width=True)
+
+            image3 = image_decode(body_content["image_data_decode3"])
+            st.image(image3, caption='Decoded Image', use_column_width=True)
+
+            image4 = image_decode(body_content["image_data_decode4"])
+            st.image(image4, caption='Decoded Image', use_column_width=True)
              
-            # Decode the base64 string
-            image_data = base64.b64decode(base64_string)
+            # # Decode the base64 string
+            # image_data = base64.b64decode(base64_string)
              
-            # Convert the binary data into an image using PIL
-            image = Image.open(BytesIO(image_data))
+            # # Convert the binary data into an image using PIL
+            # image = Image.open(BytesIO(image_data))
              
-            # Display the image in Streamlit
-            st.image(image, caption='Decoded Image', use_column_width=True)
+            # # Display the image in Streamlit
+            # st.image(image, caption='Decoded Image', use_column_width=True)
              
             # Alternatively, you can directly pass the binary image data
             # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
@@ -113,15 +129,5 @@ st.sidebar.success("Select a page above.")
 st.sidebar.text("Made with 💕 by WonderScribe")
 
 
-#========================
-# Use regex to extract points based on numbering (1., 2., etc.)
-points = re.split(r'\d\.\s', paragraph)
- 
-# Remove the first element which will be an empty string due to splitting
-points = [point.strip() for point in points if point.strip()]
- 
-# Print the extracted points one by one
-for i, point in enumerate(points, 1):
-    print(f"Point {i}: {point}")
 
 
