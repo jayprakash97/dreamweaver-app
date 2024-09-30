@@ -8,7 +8,7 @@ import streamlit as st
 #     st.write("")
 
 st.image("pages/WS_Logo.png", width=150)
-st.title(" Welcome to WonderScribe", width=100)
+st.title(" Welcome to WonderScribe")
 st.write(
 """
 We are a passionate team of authors, educators, and creatives on a mission to ignite young readers' imaginations
