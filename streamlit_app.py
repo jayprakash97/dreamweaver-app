@@ -5,8 +5,8 @@ import base64
 from io import BytesIO 
 from PIL import Image
 
-st.set_page_config(page_title="Multiple App", page_icon="👌")
-st.write(print(st.__version__))
+# st.set_page_config(page_title="Multiple App", page_icon="👌")
+# st.write(print(st.__version__))
 col1, col2  = st.columns(2, vertical_alignment="center")
 # col1, col2 = st.columns(2, horizontal_alignment="left")
 with col1:
