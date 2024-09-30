@@ -8,10 +8,10 @@ from PIL import Image
 st.set_page_config(page_title="Multiple App", page_icon="👌")
 col1, col2  = st.columns(2, gap="small", vertical_alignment="center")
 with col1:
-    st.image("pages/WS_Logo.png", width=230)
+    st.image("pages/WS_Logo.png", width=100)
 with col2:
-    st.title("WonderScribe")
-    st.write("Senior data analytics, assisting")
+    st.title("Welcome to WonderScribe Page")
+   
 
 
 # Streamlit app title
