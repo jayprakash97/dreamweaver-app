@@ -8,7 +8,7 @@ st.logo("pages/WS_Logo.png")
 st.set_page_config(page_title="Multiple App", page_icon="👌",)
 
 # Streamlit app title
-st.title("Welcome to WonderScriber")
+st.title("Welcome to WonderScribe Page")
 st.sidebar.success("Select a page above.")
  
 # # Create input fields to collect data for the POST request body
