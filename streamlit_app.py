@@ -14,8 +14,8 @@ with col1:
    
 
 # Streamlit app title
-st.title("Welcome to WonderScribe Page", font_size=20)
-
+# st.title("Welcome to WonderScribe Page", font_size="20px")
+st.title("Welcome to WonderScribe Page")
  
 # # Create input fields to collect data for the POST request body
 # name = st.text_input("Enter your name")
