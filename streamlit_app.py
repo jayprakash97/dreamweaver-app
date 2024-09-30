@@ -9,7 +9,7 @@ col1, col2  = st.columns(2, gap="small", vertical_alignment="center")
 with col1:
     st.image("pages/WS_Logo.png", width=230)
 with col2:
-    st.title("WonderScribe", anchor=false)
+    st.title("WonderScribe")
     st.write("Senior data analytics, assisting")
 
 #st.logo("WS_Logo.png", width=20, height=20)
