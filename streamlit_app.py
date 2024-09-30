@@ -109,4 +109,6 @@ if submit_btn:  # st.button("Submit"):
     except Exception as e:
         st.error(f"An error occurred: {str(e)}")
 
+st.sidebar.text("Made with 💕 by WonderScribe")
+
 
