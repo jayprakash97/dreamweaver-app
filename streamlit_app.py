@@ -14,7 +14,7 @@ with col1:
    
 
 # Streamlit app title
-st.title("Welcome to WonderScribe Page", font_size="20")
+st.title("Welcome to WonderScribe Page", font_size=20)
 
  
 # # Create input fields to collect data for the POST request body
