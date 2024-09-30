@@ -1,13 +1,14 @@
 import streamlit as st
 
-col1, col2  = st.columns(2, vertical_alignment="center")
-# col1, col2 = st.columns(2, horizontal_alignment="left")
-with col1:
-    st.image("pages/WS_Logo.png", width=150)
-with col2:
-    st.write("")
-  
-st.title(" Welcome to WonderScribe")
+# col1, col2  = st.columns(2, vertical_alignment="center")
+# # col1, col2 = st.columns(2, horizontal_alignment="left")
+# with col1:
+#     st.image("pages/WS_Logo.png", width=150)
+# with col2:
+#     st.write("")
+
+st.image("pages/WS_Logo.png", width=150)
+st.title(" Welcome to WonderScribe", width=100)
 st.write(
 """
 We are a passionate team of authors, educators, and creatives on a mission to ignite young readers' imaginations
