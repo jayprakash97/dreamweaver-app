@@ -4,7 +4,7 @@ import json
 import base64 
 from io import BytesIO 
 from PIL import Image
-
+st.logo("pages/WS_Logo.png")
 st.set_page_config(page_title="Multiple App", page_icon="👌",)
 
 # Streamlit app title
