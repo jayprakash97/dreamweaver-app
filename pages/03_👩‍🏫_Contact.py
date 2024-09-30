@@ -1,6 +1,7 @@
 import streamlit as st
 
 st.title("Contact with WonderScriber Team")
+st.logo("WS_Logo.png")
 
 with st.form("form_key"):
     Department = st.selectbox("Department", options=["Sales", "Human Resources", "Information Technology", "Public Relation", "Complaince", "Marketing", "Data Engineering", "Data Science", "Data Analytics"])
