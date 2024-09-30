@@ -11,7 +11,7 @@ from PIL import Image
 
 # Streamlit app title
 st.title("Welcome to WonderScribe Page")
-st.sidebar.success("Select a page above.")
+
  
 # # Create input fields to collect data for the POST request body
 # name = st.text_input("Enter your name")
@@ -111,6 +111,7 @@ if submit_btn:  # st.button("Submit"):
     except Exception as e:
         st.error(f"An error occurred: {str(e)}")
 
+st.sidebar.success("Select a page above.")
 st.sidebar.text("Made with 💕 by WonderScribe")
 
 
