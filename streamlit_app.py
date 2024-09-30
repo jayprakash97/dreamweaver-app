@@ -12,7 +12,7 @@ print(st.__version__)
 with col1:
     st.image("pages/WS_Logo.png", width=100)
 with col2:
-    st.title("Welcome to WonderScribe Page")
+    # st.title("Welcome to WonderScribe Page")
    
 
 
