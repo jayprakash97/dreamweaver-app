@@ -14,7 +14,6 @@ with col1:
 with col2:
     st.write("")
    
-
 # Streamlit app title
 # st.title("Welcome to WonderScribe Page", font_size="20px")
 st.title("Welcome to WonderScribe Page")
@@ -68,14 +67,6 @@ if submit_btn:  # st.button("Submit"):
        "word_count" : story_length
       }
     # Create the payload (data) to be sent in the POST request
- 
-    # payload = {
-    #  "story_type" : {story_type},
-    #  "main_character" : {main_character},
-    #  "story_theme" : story_theme,
-    #  "moral_lesson" : {moral_lesson},
-    #  "setting" :  {story_setting}
-    # }
 
       
     try:
