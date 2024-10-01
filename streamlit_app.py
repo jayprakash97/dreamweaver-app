@@ -25,7 +25,7 @@ st.title("Welcome to WonderScribe Page")
 
 def image_decode(image_data_decode):
     image_data = base64.b64decode(image_data_decode)
-    return mage.open(BytesIO(image_data))
+    return image.open(BytesIO(image_data))
 
 
 
@@ -97,6 +97,11 @@ if submit_btn:  # st.button("Submit"):
             # Base64 encoded image string
             image1 = image_decode(body_content["image_data_decode"])
             st.image(image1, caption='Decoded Image', use_column_width=True)
+
+       
+             
+            # Alternatively, you can directly pass the binary image data
+            # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
 
             # image2 = image_decode(body_content["image_data_decode2"])
             # st.image(image2, caption='Decoded Image', use_column_width=True)
