@@ -95,8 +95,8 @@ if submit_btn:  # st.button("Submit"):
             st.write(story_text)
          
             # Base64 encoded image string
-            image1 = image_decode(body_content["image_data_decode"])
-            st.image(image1, caption='Decoded Image', use_column_width=True)
+            # image1 = image_decode(body_content["image_data_decode"])
+            # st.image(image1, caption='Decoded Image', use_column_width=True)
 
        
              
@@ -111,15 +111,20 @@ if submit_btn:  # st.button("Submit"):
 
             # image4 = image_decode(body_content["image_data_decode4"])
             # st.image(image4, caption='Decoded Image', use_column_width=True)
+
+            # image1 = image_decode(body_content["image_data_decode"])
+            # st.image(image1, caption='Decoded Image', use_column_width=True)
+
+            base64_string = base64.b64decode(image_data_decode)
+            
+            # Decode the base64 string
+            image_data = base64.b64decode(base64_string)
              
-            # # Decode the base64 string
-            # image_data = base64.b64decode(base64_string)
+            # Convert the binary data into an image using PIL
+            image = Image.open(BytesIO(image_data))
              
-            # # Convert the binary data into an image using PIL
-            # image = Image.open(BytesIO(image_data))
-             
-            # # Display the image in Streamlit
-            # st.image(image, caption='Decoded Image', use_column_width=True)
+            # Display the image in Streamlit
+            st.image(image, caption='Decoded Image', use_column_width=True)
              
             # Alternatively, you can directly pass the binary image data
             # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
