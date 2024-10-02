@@ -113,19 +113,27 @@ if submit_btn:  # st.button("Submit"):
             # image1 = image_decode(body_content["image_data_decode"])
             # st.image(image1, caption='Decoded Image', use_column_width=True)
             st.write("debug1")
-            base64_string = image_decode(body_content["image_data_decode"])
-            st.write("debug2")
-            # Decode the base64 string
+            base64_string = body_content["image_data_decode"]
             image_data = base64.b64decode(base64_string)
-            st.write("debug3")
-            # Convert the binary data into an image using PIL
+            image = Image.open(BytesIO(image_data))
+            st.image(image, caption='Decoded Image', use_column_width=True)
+
+ 
+ 
+
+
+            # st.write("debug2")
+            # # Decode the base64 string
+            # image_data = base64.b64decode(base64_string)
+            # st.write("debug3")
+            # # Convert the binary data into an image using PIL
             # image = Image.open(BytesIO(image_data))
              
-            # Display the image in Streamlit
+            # # Display the image in Streamlit
             # st.image(image, caption='Decoded Image', use_column_width=True)
              
-            # Alternatively, you can directly pass the binary image data
-            st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
+            # # Alternatively, you can directly pass the binary image data
+            # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
             st.write("debug4")
         else:
             st.error(f"Failed with status code: {response.status_code}")
