@@ -5,8 +5,7 @@ import base64
 import re
 from io import BytesIO 
 from PIL import Image
-
-# pip install googletrans
+pip install googletrans
 from googletrans import Translator
 
 
