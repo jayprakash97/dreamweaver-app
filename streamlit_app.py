@@ -7,8 +7,8 @@ from io import BytesIO
 from PIL import Image
 import pip
 # Install googletrans library using pip
-pip.install('googletrans')
-
+# pip.install('googletrans')
+pip install googletrans
 #from googletrans import Translator
 
 
