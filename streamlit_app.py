@@ -5,11 +5,11 @@ import base64
 import re
 from io import BytesIO 
 from PIL import Image
-import pip
+#import pip
 # Install googletrans library using pip
 # pip.install('googletrans')
 #pip install googletrans
-from googletrans import Translator
+#from googletrans import Translator
 
 # st.set_page_config(page_title="Multiple App", page_icon="👌")
 # st.write(print(st.__version__))
@@ -99,12 +99,12 @@ if submit_btn:  # st.button("Submit"):
             st.title("Children's Story")
             st.write(story_text)
 
-            translator = Translator()
-            english_tax_term = story_text
-            target_language = "french"  # Replace with your desired target language
+            # translator = Translator()
+            # english_tax_term = story_text
+            # target_language = "french"  # Replace with your desired target language
 
-            translated_tax_term = translator.translate(english_tax_term, dest=target_language).text
-            st.write(translated_tax_term)
+            # translated_tax_term = translator.translate(english_tax_term, dest=target_language).text
+            # st.write(translated_tax_term)
          
             # Base64 encoded image string
             # image1 = image_decode(body_content["image_data_decode"])
