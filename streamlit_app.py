@@ -91,7 +91,7 @@ if submit_btn:  # st.button("Submit"):
             data = response.json()  # Parse JSON response
             st.success("POST request successful!")
             st.write('debug1')
-            st.write(data)
+            
             # Extract the body content, which is a JSON string itself
             body_content = json.loads(data["body"])
             st.write('debug2')
