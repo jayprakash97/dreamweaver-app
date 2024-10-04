@@ -138,6 +138,11 @@ if submit_btn:  # st.button("Submit"):
             image_data2 = base64.b64decode(base64_string2)
             image2 = Image.open(BytesIO(image_data2))
             st.image(image2, caption='Decoded Image', use_column_width=True)
+
+            base64_string3 = body_content["image_data_decode3"]
+            image_data3 = base64.b64decode(base64_string3)
+            image3 = Image.open(BytesIO(image_data3))
+            st.image(image3, caption='Decoded Image', use_column_width=True)
         
         else:
             st.error(f"Failed with status code: {response.status_code}")
