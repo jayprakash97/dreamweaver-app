@@ -28,8 +28,8 @@ st.title("Welcome to WonderScribe Page")
 # name = st.text_input("Enter your name")
 # age = st.number_input("Enter your age", min_value=0)
 
-========== Function for evaluating RAG application ===========
-validation_query_response = {
+#========== Function for evaluating RAG application ===========
+validation_query_response_list = {
   0: {'query': 'Female Srila children Magical Kingdoms Fantacy Brushing the tooth Develop hygiene habbits 300',
       'gold_response': 'In the enchanting Magical Kingdoms, where unicorns roamed and fairies danced, lived a young girl named Srila. Srila's days were filled with wonder and adventure, but there was one task she often neglected - brushing her teeth. One morning, as Srila was exploring the enchanted forest, she stumbled upon a curious creature. It was a tiny tooth fairy, with delicate wings and a sparkling wand. The tooth fairy fluttered around Srila, sprinkling a magical dust on her teeth. "What's this?" Srila asked, feeling a tingle in her mouth. "This is a special tooth-cleaning dust," the fairy explained. "It will keep your teeth strong and shiny, but you must remember to brush them every day."Srila promised to be more diligent about her dental hygiene. The tooth fairy smiled and vanished in a shower of glitter. From that day on, Srila made brushing her teeth a daily ritual. She used a soft-bristled brush and sweet-tasting toothpaste infused with fairy magic. Srila would sing songs and dance as she brushed, making it a fun and enjoyable activity. As Srila's teeth grew healthier and brighter, she noticed other changes too. Her breath stayed fresh, and she could enjoy all her favorite foods without any discomfort. The tooth fairy would visit occasionally, praising Srila's dedication and rewarding her with small treasures. '},
   1: {'query': 'Mike 400',
@@ -161,7 +161,7 @@ if submit_btn:  # st.button("Submit"):
             # image1 = image_decode(body_content["image_data_decode"])
             # st.image(image1, caption='Decoded Image', use_column_width=True)
 
-      #       for 1 in validation_questions_answer.keys():
+      #       for 1 in validation_query_response_list.keys():
       #           references_answer.append(validation_questions_answers[i]['gold_answer'])
       #           if validation_questions_answers[i]['gold_answer'] =        "story_type" : story_type,
       #  "main_character" : main_character,
