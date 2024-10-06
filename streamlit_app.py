@@ -31,7 +31,7 @@ st.title("Welcome to WonderScribe Page")
 #========== Function for evaluating RAG application ===========
 validation_query_response_list = {
   0: {'query': 'Female Srila children Magical Kingdoms Fantacy Brushing the tooth Develop hygiene habbits 300',
-      'gold_response': 'In the enchanting Magical Kingdoms, where unicorns roamed and fairies danced, lived a young girl'
+      'gold_response': 'In the enchanting Magical Kingdoms, where unicorns roamed and fairies danced, lived a young girl'},
   #     named Srila. Srilas days were filled with wonder and adventure, but there was one task she often neglected - 
   #     brushing her teeth. One morning, as Srila was exploring the enchanted forest, she stumbled upon a curious creature. 
   #     It was a tiny tooth fairy, with delicate wings and a sparkling wand. The tooth fairy fluttered around Srila, 
