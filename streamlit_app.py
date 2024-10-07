@@ -113,7 +113,7 @@ if submit_btn:  # st.button("Submit"):
             # image1 = image_decode(body_content["image_data_decode"])
             # st.image(image1, caption='Decoded Image', use_column_width=True)
            
-            base64_string = body_content["image_data_decode"]
+            base64_string = body_content["image_data_decode1"]
             image_data = base64.b64decode(base64_string)
             image = Image.open(BytesIO(image_data))
             st.image(image, caption='Decoded Image', use_column_width=True)
