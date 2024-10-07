@@ -5,11 +5,6 @@ import base64
 import re
 from io import BytesIO 
 from PIL import Image
-#import pip
-# Install googletrans library using pip
-# pip.install('googletrans')
-#pip install googletrans
-#from googletrans import Translator
 
 # st.set_page_config(page_title="Multiple App", page_icon="👌")
 # st.write(print(st.__version__))
@@ -28,10 +23,11 @@ st.title("Welcome to WonderScribe Page")
 # name = st.text_input("Enter your name")
 # age = st.number_input("Enter your age", min_value=0)
 
-
 def image_decode(image_data_decode):
     image_data = base64.b64decode(image_data_decode)
     return image.open(BytesIO(image_data))
+
+
 
 with st.form("form_key"):
     st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
@@ -89,42 +85,38 @@ if submit_btn:  # st.button("Submit"):
         if response.status_code == 200:
             data = response.json()  # Parse JSON response
             st.success("POST request successful!")
-            st.write('debug1')
-            
+     
             # Extract the body content, which is a JSON string itself
             body_content = json.loads(data["body"])
-            st.write('debug2')
-         
             #st.write("Response from API:", body_content)
             # Extract the story text
             story_text = body_content["text"]
-          
             st.title("Children's Story")
             st.write(story_text)
+         
+            # Base64 encoded image string
+            # image1 = image_decode(body_content["image_data_decode"])
+            # st.image(image1, caption='Decoded Image', use_column_width=True)
+             
+            # Alternatively, you can directly pass the binary image data
+            # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
 
-            # translator = Translator()
-            # english_tax_term = story_text
-            # target_language = "french"  # Replace with your desired target language
+            # image2 = image_decode(body_content["image_data_decode2"])
+            # st.image(image2, caption='Decoded Image', use_column_width=True)
 
-            # translated_tax_term = translator.translate(english_tax_term, dest=target_language).text
-            # st.write(translated_tax_term)
-
-            base64_string1 = body_content["image_data_decode1"]
-        
-            image_data1 = base64.b64decode(base64_string1)
-            image1 = Image.open(BytesIO(image_data1))
-            st.image(image1, caption='Decoded Image1', use_column_width=True)
-
-            base64_string2 = body_content["image_data_decode2"]
-            image_data2 = base64.b64decode(base64_string2)
-            image2 = Image.open(BytesIO(image_data2))
-            st.image(image2, caption='Decoded Image2', use_column_width=True)
-
-            # base64_string3 = body_content["image_data_decode3"]
-            # image_data3 = base64.b64decode(base64_string3)
-            # image3 = Image.open(BytesIO(image_data3))
+            # image3 = image_decode(body_content["image_data_decode3"])
             # st.image(image3, caption='Decoded Image', use_column_width=True)
-        
+
+            # image4 = image_decode(body_content["image_data_decode4"])
+            # st.image(image4, caption='Decoded Image', use_column_width=True)
+
+            # image1 = image_decode(body_content["image_data_decode"])
+            # st.image(image1, caption='Decoded Image', use_column_width=True)
+           
+            base64_string = body_content["image_data_decode"]
+            image_data = base64.b64decode(base64_string)
+            image = Image.open(BytesIO(image_data))
+            st.image(image, caption='Decoded Image', use_column_width=True)
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
@@ -133,7 +125,3 @@ if submit_btn:  # st.button("Submit"):
 
 st.sidebar.success("Select a page above.")
 st.sidebar.text("Made with 💕 by WonderScribe")
-
-
-
-
