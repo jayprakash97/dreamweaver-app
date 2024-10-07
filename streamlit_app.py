@@ -36,7 +36,7 @@ validation_query_response_list = {
       'gold_response': ' '}
 }
 st.write("1")
-st.write(f"validation_query_response.: {validation_query_response_list[0][0]}")
+st.write(f"validation_query_response.: {validation_query_response_list[0]}")
 # Function to evaluate RAG system using ROUGE
 def rouge_scores(predicated_response, gold_response):
   import evaluate
