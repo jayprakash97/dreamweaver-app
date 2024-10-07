@@ -108,26 +108,9 @@ if submit_btn:  # st.button("Submit"):
 
             # translated_tax_term = translator.translate(english_tax_term, dest=target_language).text
             # st.write(translated_tax_term)
-         
-            # Base64 encoded image string
-            # image1 = image_decode(body_content["image_data_decode"])
-            # st.image(image1, caption='Decoded Image', use_column_width=True)
-             
-            # Alternatively, you can directly pass the binary image data
-            # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
 
-            # image2 = image_decode(body_content["image_data_decode2"])
-            # st.image(image2, caption='Decoded Image', use_column_width=True)
-
-            # image3 = image_decode(body_content["image_data_decode3"])
-            # st.image(image3, caption='Decoded Image', use_column_width=True)
-
-            # image4 = image_decode(body_content["image_data_decode4"])
-            # st.image(image4, caption='Decoded Image', use_column_width=True)
-
-            # image1 = image_decode(body_content["image_data_decode"])
-            # st.image(image1, caption='Decoded Image', use_column_width=True)
-
+            base64_string1 = body_content["image_data_decode1"]
+        
             image_data1 = base64.b64decode(base64_string1)
             image1 = Image.open(BytesIO(image_data1))
             st.image(image1, caption='Decoded Image1', use_column_width=True)
