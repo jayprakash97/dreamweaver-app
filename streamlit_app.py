@@ -85,7 +85,7 @@ if submit_btn:  # st.button("Submit"):
         # Check if the request was successful (status code 200-299)
         if response.status_code == 200:
             data = response.json()  # Parse JSON response
-            st.success("POST request successful!")
+            # st.success("POST request successful!")
             # st.write("data......", data)
             # Extract the body content, which is a JSON string itself
             # body_content = json.loads(data["body"])
@@ -102,11 +102,11 @@ if submit_btn:  # st.button("Submit"):
             image2 = image_decode(data["image_data_decode2"])
             st.image(image2, caption='Decoded Image', use_column_width=True)
 
-            image3 = image_decode(data["image_data_decode3"])
-            st.image(image3, caption='Decoded Image', use_column_width=True)
+            # image3 = image_decode(data["image_data_decode3"])
+            # st.image(image3, caption='Decoded Image', use_column_width=True)
             
-            image4 = image_decode(data["image_data_decode4"])
-            st.image(image4, caption='Decoded Image', use_column_width=True)
+            # image4 = image_decode(data["image_data_decode4"])
+            # st.image(image4, caption='Decoded Image', use_column_width=True)
              
             # Alternatively, you can directly pass the binary image data
             # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
