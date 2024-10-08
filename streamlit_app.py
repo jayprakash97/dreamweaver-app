@@ -86,7 +86,7 @@ if submit_btn:  # st.button("Submit"):
         if response.status_code == 200:
             data = response.json()  # Parse JSON response
             st.success("POST request successful!")
-     
+            st.write("data......", data)
             # Extract the body content, which is a JSON string itself
             body_content = json.loads(data["body"])
             st.write("Response from API:", body_content)
