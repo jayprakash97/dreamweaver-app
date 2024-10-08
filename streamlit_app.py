@@ -88,10 +88,10 @@ if submit_btn:  # st.button("Submit"):
             st.success("POST request successful!")
             st.write("data......", data)
             # Extract the body content, which is a JSON string itself
-            body_content = json.loads(data["body"])
+            body_content = json.loads(data["text"])
             st.write("Response from API:", body_content)
             # Extract the story text
-            story_text = body_content["text"]
+            story_text = body_content
             st.title("Children's Story")
             st.write(story_text)
          
