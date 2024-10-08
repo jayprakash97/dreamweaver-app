@@ -92,7 +92,7 @@ if submit_btn:  # st.button("Submit"):
             # st.write("Response from API:", body_content)
             # Extract the story text
             # story_text = body_content["text"]
-             story_text = data[0]
+            story_text = data[0]
             st.title("Children's Story")
             st.write(story_text)
          
