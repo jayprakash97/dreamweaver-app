@@ -25,7 +25,7 @@ st.title("Welcome to WonderScribe Page")
 
 def image_decode(image_data_decode):
     image_data = base64.b64decode(image_data_decode)
-    return image.open(BytesIO(image_data))
+    return Image.open(BytesIO(image_data))
 
 
 
@@ -95,7 +95,8 @@ if submit_btn:  # st.button("Submit"):
             story_text = data["text"]
             st.title("Children's Story")
             st.write(story_text)
-         
+
+    
             # Base64 encoded image string
             image1 = image_decode(data["image_data_decode1"])
             st.image(image1, caption='Decoded Image', use_column_width=True)
