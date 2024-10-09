@@ -102,31 +102,12 @@ if submit_btn:  # st.button("Submit"):
             image2 = image_decode(data["image_data_decode2"])
             st.image(image2, caption='Decoded Image', use_column_width=True)
 
-            # image3 = image_decode(data["image_data_decode3"])
-            # st.image(image3, caption='Decoded Image', use_column_width=True)
+            image3 = image_decode(data["image_data_decode3"])
+            st.image(image3, caption='Decoded Image', use_column_width=True)
             
-            # image4 = image_decode(data["image_data_decode4"])
-            # st.image(image4, caption='Decoded Image', use_column_width=True)
-             
-            # Alternatively, you can directly pass the binary image data
-            # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
+            image4 = image_decode(data["image_data_decode4"])
+            st.image(image4, caption='Decoded Image', use_column_width=True)
 
-            # image2 = image_decode(body_content["image_data_decode2"])
-            # st.image(image2, caption='Decoded Image', use_column_width=True)
-
-            # image3 = image_decode(body_content["image_data_decode3"])
-            # st.image(image3, caption='Decoded Image', use_column_width=True)
-
-            # image4 = image_decode(body_content["image_data_decode4"])
-            # st.image(image4, caption='Decoded Image', use_column_width=True)
-
-            # image1 = image_decode(body_content["image_data_decode"])
-            # st.image(image1, caption='Decoded Image', use_column_width=True)
-           
-            # base64_string = body_content["image_data_decode"]
-            # image_data = base64.b64decode(base64_string)
-            # image = Image.open(BytesIO(image_data))
-            # st.image(image, caption='Decoded Image', use_column_width=True)
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
