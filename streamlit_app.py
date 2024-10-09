@@ -102,16 +102,16 @@ if submit_btn:  # st.button("Submit"):
             st.write(story_text)
 
             image1 = image_decode(data["image_data_decode1"])
-            st.image(image1, caption='Decoded Image', use_column_width=True)
+            # st.image(image1, caption='Decoded Image', use_column_width=True)
             
             image2 = image_decode(data["image_data_decode2"])
-            st.image(image2, caption='Decoded Image', use_column_width=True)
+            # st.image(image2, caption='Decoded Image', use_column_width=True)
 
             image3 = image_decode(data["image_data_decode3"])
-            st.image(image3, caption='Decoded Image', use_column_width=True)
+            # st.image(image3, caption='Decoded Image', use_column_width=True)
             
             image4 = image_decode(data["image_data_decode4"])
-            st.image(image4, caption='Decoded Image', use_column_width=True)
+            # st.image(image4, caption='Decoded Image', use_column_width=True)
 
   
             # Custom CSS for storybook theme
