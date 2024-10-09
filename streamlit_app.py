@@ -108,6 +108,68 @@ if submit_btn:  # st.button("Submit"):
             image4 = image_decode(data["image_data_decode4"])
             st.image(image4, caption='Decoded Image', use_column_width=True)
 
+            # Set the page configuration
+            st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
+ 
+            # Custom CSS for storybook theme
+            st.markdown("""
+            <style>
+            .storybook {
+                font-family: 'Courier New', Courier, monospace;
+                background-color: #f9f5ec;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+                line-height: 1.6;
+            }
+            h1 {
+                color: #8B4513;
+            }
+            p {
+                font-size: 18px;
+                color: #5a4a3f;
+            }
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+            .container {
+                display: flex;
+                justify-content: space-between;
+            }
+            </style>
+        """, unsafe_allow_html=True)
+         
+            # Title for the storybook
+            st.title("📖 My Storybook")
+ 
+            # # Story section
+            # story = """
+            # Once upon a time in a land far, far away, there was a magical forest.
+            # In the heart of the forest lived a young adventurer named Lily.
+            # She was known for her bravery and kindness.
+            # Every morning, Lily would set out to explore new parts of the forest,
+            # seeking treasures and helping anyone in need.
+            # """
+ 
+            # Display the story
+            st.markdown(f'<div class="storybook"><p>{story}</p></div>', unsafe_allow_html=True)
+ 
+            # Images section
+            col1, col2, col3, col4 = st.columns(4)
+ 
+            with col1:
+                st.image(image1, caption=" ", use_column_width=True)
+            with col2:
+                st.image(image2, caption="", use_column_width=True)
+            with col3:
+                st.image(image3, caption="", use_column_width=True)
+            with col4:
+                st.image(image4, caption="", use_column_width=True)
+        
+
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
