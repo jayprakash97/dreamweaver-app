@@ -158,7 +158,7 @@ if submit_btn:  # st.button("Submit"):
             # """
  
             # Display the story
-            st.markdown(f'<div class="storybook"><p>{story}</p></div>', unsafe_allow_html=True)
+            # st.markdown(f'<div class="storybook"><p>{story}</p></div>', unsafe_allow_html=True)
  
             # Images section
             col1, col2, col3, col4 = st.columns(4)
