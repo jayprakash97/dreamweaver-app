@@ -18,6 +18,10 @@ with col2:
 # Streamlit app title
 # st.title("Welcome to WonderScribe Page", font_size="20px")
 st.title("Welcome to WonderScribe Page")
+
+ # Set the page configuration
+st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
+  
  
 # # Create input fields to collect data for the POST request body
 # name = st.text_input("Enter your name")
