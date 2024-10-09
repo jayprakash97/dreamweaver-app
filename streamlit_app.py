@@ -6,6 +6,9 @@ import re
 from io import BytesIO 
 from PIL import Image
 
+# Set the page configuration
+st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
+
 # st.set_page_config(page_title="Multiple App", page_icon="👌")
 # st.write(print(st.__version__))
 col1, col2  = st.columns(2, vertical_alignment="center")
@@ -19,8 +22,6 @@ with col2:
 # st.title("Welcome to WonderScribe Page", font_size="20px")
 st.title("Welcome to WonderScribe Page")
 
- # Set the page configuration
-st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
   
  
 # # Create input fields to collect data for the POST request body
