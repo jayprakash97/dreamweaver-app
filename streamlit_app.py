@@ -113,9 +113,7 @@ if submit_btn:  # st.button("Submit"):
             image4 = image_decode(data["image_data_decode4"])
             st.image(image4, caption='Decoded Image', use_column_width=True)
 
-            # Set the page configuration
-            st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
- 
+  
             # Custom CSS for storybook theme
             st.markdown("""
             <style>
