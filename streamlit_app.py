@@ -32,7 +32,15 @@ def image_decode(image_data_decode):
     image_data = base64.b64decode(image_data_decode)
     return Image.open(BytesIO(image_data))
 
-
+def extract_description_and_text(paragraph):
+    description_pattern = r"Description: (.*?)(?=Text:|$)"
+    text_pattern = r"Text: (.*?)(?=Description:|$)"
+    descriptions = re.findall(description_pattern, paragraph, re.DOTALL)
+    texts = re.findall(text_pattern, paragraph, re.DOTALL)
+ 
+    descriptions = [desc.strip() for desc in descriptions]
+    texts = [text.strip() for text in texts]
+    return descriptions, texts
 
 with st.form("form_key"):
     st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
@@ -172,7 +180,9 @@ if submit_btn:  # st.button("Submit"):
             with col4:
                 st.image(image4, caption="", use_column_width=True)
         
-
+            descriptions, texts = extract_description_and_text(story_text)
+            st.write("Descriptions:", descriptions)
+            st.write("Texts:", texts)
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
