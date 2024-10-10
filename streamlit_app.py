@@ -170,9 +170,13 @@ if submit_btn:  # st.button("Submit"):
  
             # Images section
             col1, col2, col3, col4 = st.columns(4)
- 
+
+            
             with col1:
                 st.image(image1, caption=" ", use_column_width=True)
+                descriptions, texts = extract_description_and_text(story_text)
+                st.write("Descriptions:", descriptions)
+                st.write("Texts:", texts)
             with col2:
                 st.image(image2, caption="", use_column_width=True)
             with col3:
@@ -180,9 +184,7 @@ if submit_btn:  # st.button("Submit"):
             with col4:
                 st.image(image4, caption="", use_column_width=True)
         
-            descriptions, texts = extract_description_and_text(story_text)
-            st.write("Descriptions:", descriptions)
-            st.write("Texts:", texts)
+
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
