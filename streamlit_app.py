@@ -33,8 +33,8 @@ def image_decode(image_data_decode):
     return Image.open(BytesIO(image_data))
 
 def extract_description_and_text(paragraph):
-    description_pattern = r"Description: (.*?)(?=Text:|$)"
-    text_pattern = r"Text: (.*?)(?=Description:|$)"
+    description_pattern = r"description: (.*?)(?=text:|$)"
+    text_pattern = r"text: (.*?)(?=description:|$)"
     descriptions = re.findall(description_pattern, paragraph, re.DOTALL)
     texts = re.findall(text_pattern, paragraph, re.DOTALL)
  
