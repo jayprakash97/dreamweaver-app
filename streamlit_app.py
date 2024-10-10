@@ -110,8 +110,15 @@ if submit_btn:  # st.button("Submit"):
             st.write(story_text)
 
             descriptions, texts = extract_description_and_text(story_text)
-            st.write(descriptions)
-            st.write(texts)
+            # Display Descriptions
+            st.subheader("Descriptions:")
+            for idx, desc in enumerate(descriptions, 1):
+                st.write(f"{idx}. {desc}")
+                
+            # Display Texts
+            st.subheader("Texts:")
+            for idx, text in enumerate(texts, 1):
+                st.write(f"{idx}. {text}")
 
             image1 = image_decode(data["image_data_decode1"])
             # st.image(image1, caption='Decoded Image', use_column_width=True)
