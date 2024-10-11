@@ -132,6 +132,7 @@ if submit_btn:  # st.button("Submit"):
             image4 = image_decode(data["image_data_decode4"])
             # st.image(image4, caption='Decoded Image', use_column_width=True)
 
+            image5 = image_decode(data["image_data_decode5"])
   
             # Custom CSS for storybook theme
             st.markdown("""
@@ -166,34 +167,39 @@ if submit_btn:  # st.button("Submit"):
          
             # Title for the storybook
             st.title("📖 My Storybook")
- 
-            # # Story section
-            # story = """
-            # Once upon a time in a land far, far away, there was a magical forest.
-            # In the heart of the forest lived a young adventurer named Lily.
-            # She was known for her bravery and kindness.
-            # Every morning, Lily would set out to explore new parts of the forest,
-            # seeking treasures and helping anyone in need.
-            # """
- 
-            # Display the story
-            # st.markdown(f'<div class="storybook"><p>{story}</p></div>', unsafe_allow_html=True)
- 
-            # Images section
-            col1, col2, col3, col4 = st.columns(4)
 
+            pattern = r'Panel \d+\s+Description:\s*(.*?)\s+Text:\s*(.*?)(?=Captions:|Panel|\Z)'
+             
+            matches = re.findall(pattern, story_text, re.DOTALL)
+             
+            descriptions = []
+            texts = []
+             
+            # Extracting the results into lists
+            for description, panel_text in matches:
+                descriptions.append(description.strip())
+                texts.append(panel_text.strip())
+             
+            col1, col2, col3, col4, col5 = st.columns(5)
+
+           =============================
             
             with col1:
-                st.image(image1, caption=" ", use_column_width=True)
+                st.markdown(f'<div class="storybook"><p>{texts[0]}</p></div>', unsafe_allow_html=True)
+                st.image(image1, caption=descriptions[0], use_column_width=True)
 
             with col2:
-                st.image(image2, caption="", use_column_width=True)
+                st.markdown(f'<div class="storybook"><p>{texts[1]}</p></div>', unsafe_allow_html=True)
+                st.image(image2, caption=descriptions[1], use_column_width=True)
             with col3:
-                st.image(image3, caption="", use_column_width=True)
+                st.markdown(f'<div class="storybook"><p>{texts[2]}</p></div>', unsafe_allow_html=True)
+                st.image(image3, caption=descriptions[2], use_column_width=True)
             with col4:
-                st.image(image4, caption="", use_column_width=True)
-        
-
+                st.markdown(f'<div class="storybook"><p>{texts[3]}</p></div>', unsafe_allow_html=True)
+                st.image(image4, caption=descriptions[3], use_column_width=True)
+            with col5:
+                st.markdown(f'<div class="storybook"><p>{texts[4]}</p></div>', unsafe_allow_html=True)
+                st.image(image5, caption=descriptions[4], use_column_width=True)
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
