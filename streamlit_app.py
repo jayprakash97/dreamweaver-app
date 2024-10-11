@@ -113,36 +113,35 @@ if submit_btn:  # st.button("Submit"):
 
             image5 = image_decode(data["image_data_decode5"])
   
-            # Custom CSS for storybook theme
             st.markdown("""
-            <style>
-            .storybook {
-                font-family: 'Courier New', Courier, monospace;
-                background-color: #f9f5ec;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
-                line-height: 1.6;
-            }
-            h1 {
-                color: #8B4513;
-            }
-            p {
-                font-size: 18px;
-                color: #5a4a3f;
-            }
-            .center {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 50%;
-            }
-            .container {
-                display: flex;
-                justify-content: space-between;
-            }
-            </style>
-        """, unsafe_allow_html=True)
+                    <style>
+                    .storybook {
+                        font-family: 'Courier New', Courier, monospace;
+                        background-color: #f9f5ec;
+                        padding: 50px;
+                        border-radius: 10px;
+                        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+                        line-height: 1.6;
+                    }
+                    h1 {
+                        color: #8B4513;
+                    }
+                    p {
+                        font-size: 18px;
+                        color: #5a4a3f;
+                    }
+                    .center {
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 50%;
+                    }
+                    .container {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    </style>
+            """, unsafe_allow_html=True)
          
             # Title for the storybook
             st.title("📖 My Storybook")
