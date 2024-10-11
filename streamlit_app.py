@@ -32,16 +32,6 @@ def image_decode(image_data_decode):
     image_data = base64.b64decode(image_data_decode)
     return Image.open(BytesIO(image_data))
 
-def extract_description_and_text(paragraph):
-    description_pattern = r"description: (.*?)(?=text:|$)"
-    text_pattern = r"text: (.*?)(?=description:|$)"
-    descriptions = re.findall(description_pattern, paragraph, re.DOTALL)
-    texts = re.findall(text_pattern, paragraph, re.DOTALL)
- 
-    descriptions = [desc.strip() for desc in descriptions]
-    texts = [text.strip() for text in texts]
-    return descriptions, texts
-
 with st.form("form_key"):
     st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
     gender = st.selectbox("Your Gender", options=["Male", "Female", "Don't want to share"])
@@ -107,18 +97,7 @@ if submit_btn:  # st.button("Submit"):
             # story_text = body_content["text"]
             story_text = data["text"]
             st.title("Children's Story")
-            st.write(story_text)
-
-            descriptions, texts = extract_description_and_text(story_text)
-            # Display Descriptions
-            st.subheader("Descriptions:")
-            for idx, desc in enumerate(descriptions, 1):
-                st.write(f"{idx}. {desc}")
-                
-            # Display Texts
-            st.subheader("Texts:")
-            for idx, text in enumerate(texts, 1):
-                st.write(f"{idx}. {text}")
+            # st.write(story_text)
 
             image1 = image_decode(data["image_data_decode1"])
             # st.image(image1, caption='Decoded Image', use_column_width=True)
@@ -181,8 +160,6 @@ if submit_btn:  # st.button("Submit"):
                 texts.append(panel_text.strip())
              
             col1, col2, col3, col4, col5 = st.columns(5)
-
-           =============================
             
             with col1:
                 st.markdown(f'<div class="storybook"><p>{texts[0]}</p></div>', unsafe_allow_html=True)
