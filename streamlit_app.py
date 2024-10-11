@@ -7,9 +7,9 @@ from io import BytesIO
 from PIL import Image
 
 # Set the page configuration
-st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
+# st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
 
-# st.set_page_config(page_title="Multiple App", page_icon="👌")
+st.set_page_config(page_title="Multiple App", page_icon="👌")
 # st.write(print(st.__version__))
 col1, col2  = st.columns(2, vertical_alignment="center")
 # col1, col2 = st.columns(2, horizontal_alignment="left")
