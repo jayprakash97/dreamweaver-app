@@ -7,9 +7,9 @@ from io import BytesIO
 from PIL import Image
 
 # Set the page configuration
-# st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
+st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
 
-st.set_page_config(page_title="Multiple App", page_icon="👌")
+# st.set_page_config(page_title="Multiple App", page_icon="👌")
 # st.write(print(st.__version__))
 col1, col2  = st.columns(2, vertical_alignment="center")
 # col1, col2 = st.columns(2, horizontal_alignment="left")
@@ -160,9 +160,14 @@ if submit_btn:  # st.button("Submit"):
              
             col1, col2, col3, col4, col5 = st.columns(5)
             
-            with col1:
-                st.markdown(f'<div class="storybook"><p>{texts[0]}</p></div>', unsafe_allow_html=True)
-                st.image(image1, caption=descriptions[0], use_column_width=True)
+            # with col1:
+            #     st.markdown(f'<div class="storybook"><p>{texts[0]}</p></div>', unsafe_allow_html=True)
+            #     st.image(image1, caption=descriptions[0], use_column_width=True)
+            # with col1:
+            st.markdown(f'<div class="storybook"><p>{texts[0]}</p></div>', unsafe_allow_html=True)
+            st.image(image1, caption=descriptions[0], use_column_width=True)
+            st.markdown(f'<div class="storybook"><p>{texts[1]}</p></div>', unsafe_allow_html=True)
+            st.image(image2, caption=descriptions[1], use_column_width=True)
 
             with col2:
                 st.markdown(f'<div class="storybook"><p>{texts[1]}</p></div>', unsafe_allow_html=True)
