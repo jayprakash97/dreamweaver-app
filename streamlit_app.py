@@ -6,9 +6,6 @@ import re
 from io import BytesIO 
 from PIL import Image
 
-# Set the page configuration
-st.set_page_config(page_title="Storybook", page_icon="📖", layout="wide")
-
 # st.set_page_config(page_title="Multiple App", page_icon="👌")
 # st.write(print(st.__version__))
 col1, col2  = st.columns(2, vertical_alignment="center")
@@ -21,8 +18,6 @@ with col2:
 # Streamlit app title
 # st.title("Welcome to WonderScribe Page", font_size="20px")
 st.title("Welcome to WonderScribe Page")
-
-  
  
 # # Create input fields to collect data for the POST request body
 # name = st.text_input("Enter your name")
@@ -31,6 +26,8 @@ st.title("Welcome to WonderScribe Page")
 def image_decode(image_data_decode):
     image_data = base64.b64decode(image_data_decode)
     return Image.open(BytesIO(image_data))
+
+
 
 with st.form("form_key"):
     st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
@@ -58,8 +55,9 @@ with st.form("form_key"):
 # story_theme_value = st.text_input( value=story_theme)
 
 # AWS API URL for POST request
-AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
- 
+# AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
+AWS_API_URL = "https://geugn8vxbd.execute-api.us-east-1.amazonaws.com/dev/"
+
 # Optional: Set up headers (if using an API key or authentication)
 headers = {
  #   "x-api-key": "your-api-key",  # Remove if your API doesn't require a key
@@ -97,90 +95,39 @@ if submit_btn:  # st.button("Submit"):
             # story_text = body_content["text"]
             story_text = data["text"]
             st.title("Children's Story")
-            # st.write(story_text)
+            st.write(story_text)
 
             image1 = image_decode(data["image_data_decode1"])
-            # st.image(image1, caption='Decoded Image', use_column_width=True)
+            st.image(image1, caption='Decoded Image', use_column_width=True)
             
             image2 = image_decode(data["image_data_decode2"])
-            # st.image(image2, caption='Decoded Image', use_column_width=True)
+            st.image(image2, caption='Decoded Image', use_column_width=True)
 
-            image3 = image_decode(data["image_data_decode3"])
+            # image3 = image_decode(data["image_data_decode3"])
             # st.image(image3, caption='Decoded Image', use_column_width=True)
             
-            image4 = image_decode(data["image_data_decode4"])
+            # image4 = image_decode(data["image_data_decode4"])
+            # st.image(image4, caption='Decoded Image', use_column_width=True)
+             
+            # Alternatively, you can directly pass the binary image data
+            # st.image(BytesIO(image_data), caption='Decoded Image', use_column_width=True)
+
+            # image2 = image_decode(body_content["image_data_decode2"])
+            # st.image(image2, caption='Decoded Image', use_column_width=True)
+
+            # image3 = image_decode(body_content["image_data_decode3"])
+            # st.image(image3, caption='Decoded Image', use_column_width=True)
+
+            # image4 = image_decode(body_content["image_data_decode4"])
             # st.image(image4, caption='Decoded Image', use_column_width=True)
 
-            image5 = image_decode(data["image_data_decode5"])
-  
-            st.markdown("""
-                    <style>
-                    .storybook {
-                        font-family: 'Courier New', Courier, monospace;
-                        background-color: #f9f5ec;
-                        padding: 50px;
-                        border-radius: 10px;
-                        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
-                        line-height: 1.6;
-                    }
-                    h1 {
-                        color: #8B4513;
-                    }
-                    p {
-                        font-size: 18px;
-                        color: #5a4a3f;
-                    }
-                    .center {
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                        width: 50%;
-                    }
-                    .container {
-                        display: flex;
-                        justify-content: space-between;
-                    }
-                    </style>
-            """, unsafe_allow_html=True)
-         
-            # Title for the storybook
-            st.title("📖 My Storybook")
-
-            pattern = r'Panel \d+\s+Description:\s*(.*?)\s+Text:\s*(.*?)(?=Captions:|Panel|\Z)'
-             
-            matches = re.findall(pattern, story_text, re.DOTALL)
-             
-            descriptions = []
-            texts = []
-             
-            # Extracting the results into lists
-            for description, panel_text in matches:
-                descriptions.append(description.strip())
-                texts.append(panel_text.strip())
-             
-            col1, col2, col3, col4, col5 = st.columns(5)
-            
-            # with col1:
-            #     st.markdown(f'<div class="storybook"><p>{texts[0]}</p></div>', unsafe_allow_html=True)
-            #     st.image(image1, caption=descriptions[0], use_column_width=True)
-            # with col1:
-            st.markdown(f'<div class="storybook"><p>{texts[0]}</p></div>', unsafe_allow_html=True)
-            st.image(image1, caption=descriptions[0], use_column_width=True)
-            st.markdown(f'<div class="storybook"><p>{texts[1]}</p></div>', unsafe_allow_html=True)
-            st.image(image2, caption=descriptions[1], use_column_width=True)
-
-            with col2:
-                st.markdown(f'<div class="storybook"><p>{texts[1]}</p></div>', unsafe_allow_html=True)
-                st.image(image2, caption=descriptions[1], use_column_width=True)
-            with col3:
-                st.markdown(f'<div class="storybook"><p>{texts[2]}</p></div>', unsafe_allow_html=True)
-                st.image(image3, caption=descriptions[2], use_column_width=True)
-            with col4:
-                st.markdown(f'<div class="storybook"><p>{texts[3]}</p></div>', unsafe_allow_html=True)
-                st.image(image4, caption=descriptions[3], use_column_width=True)
-            with col5:
-                st.markdown(f'<div class="storybook"><p>{texts[4]}</p></div>', unsafe_allow_html=True)
-                st.image(image5, caption=descriptions[4], use_column_width=True)
+            # image1 = image_decode(body_content["image_data_decode"])
+            # st.image(image1, caption='Decoded Image', use_column_width=True)
+           
+            # base64_string = body_content["image_data_decode"]
+            # image_data = base64.b64decode(base64_string)
+            # image = Image.open(BytesIO(image_data))
+            # st.image(image, caption='Decoded Image', use_column_width=True)
         else:
             st.error(f"Failed with status code: {response.status_code}")
             st.write(response.text)  # Display the error message from API
