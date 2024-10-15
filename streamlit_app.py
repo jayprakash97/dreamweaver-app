@@ -38,7 +38,7 @@ def fetch_story_data(payload):
     }
     
     # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-    response = requests.post(AWS_API_URL, headers=headers, json=payload, verify=False)
+    response = requests.post(AWS_API_URL, headers=headers, json=payload)
    
     if response.status_code == 200:
         data = response.json()
@@ -62,7 +62,7 @@ def fetch_and_decode_images(captions):
         }  
         json_data = payload2
         # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-        response = requests.post(AWS_API_URL, headers=headers, json=json_data, verify=False)
+        response = requests.post(AWS_API_URL, headers=headers, json=json_data)
         if response.status_code == 200:
             data = response.json()
             decoded_images.append(data["image_data_decode1"])
