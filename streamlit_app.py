@@ -177,8 +177,7 @@ try:
             st.image(image5, caption=captions[4], use_column_width=True)
 
     else:
-        st.error(f"Failed with status code: {response.status_code}")
-        st.write(response.text)  # Display the error message from API
+        st.error(f"Failed with status code:  ")
         
 except Exception as e:
     st.error(f"An error occurred: {str(e)}")
