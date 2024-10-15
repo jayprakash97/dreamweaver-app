@@ -175,6 +175,75 @@ try:
         with col5:
             st.markdown(f'<div class="storybook"><p>{story_texts[4]}</p></div>', unsafe_allow_html=True)
             st.image(image5, caption=captions[4], use_column_width=True)
+ 
+        Story_pages = [
+                {
+                    "text": story_texts[0],
+                    "image": decoded_images[0],
+                    "caption": captions[0]
+                },
+                {
+                    "text": story_texts[1],
+                    "image": decoded_images[1],
+                    "caption": captions[1]
+                },
+                {
+                    "text": story_texts[2],
+                    "image": decoded_images[2],
+                    "caption": captions[2]
+                },
+                {
+                    "text": story_texts[3],
+                    "image": decoded_images[3],
+                    "caption": captions[3]
+                },
+                {
+                    "text": story_texts[4],
+                    "image": decoded_images[4],
+                    "caption": captions[4]
+                }
+            ]
+
+        if 'page_index' not in st.session_state:
+            st.session_state.page_index = 0
+ 
+            # Functions for navigating between pages
+            def next_page():
+                if st.session_state.page_index < len(story_pages) - 1:
+                    st.session_state.page_index += 1
+ 
+            def prev_page():
+                if st.session_state.page_index > 0:
+                    st.session_state.page_index -= 1
+ 
+            # Get the current page's content
+            current_page = story_pages[st.session_state.page_index]
+ 
+            st.title("📖 My Storybook")
+            #image = Image.open(current_page["image"])
+            image = image_decode(current_page["image"])
+            # Create two columns: one for the story text, one for the image
+            col1, col2 = st.columns(2)
+ 
+            with col1:
+                #st.markdown(f'<div class="storybook-text">{current_page["text"]}</div>', unsafe_allow_html=True)
+                #st.markdown(f'<div class="storybook-text" style="height: {image.height}px;"><p>{current_page["text"]}</p></div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="storybook-text"><p>{current_page["text"]}</p></div>', unsafe_allow_html=True)
+            with col2:
+                # Use custom HTML and CSS for image with the desired style
+                #st.markdown(f'<img src="{current_page["image"]}" alt="{current_page["caption"]}" class="storybook-image">', unsafe_allow_html=True)
+                st.image(image, caption=current_page["caption"], use_column_width=True)
+ 
+            # Create Previous and Next buttons for navigation
+            col1, col2, col3 = st.columns([1, 2, 1])
+ 
+            with col1:
+                if st.session_state.page_index > 0:
+                    st.button("Previous", on_click=prev_page)
+ 
+            with col3:
+                if st.session_state.page_index < len(story_pages) - 1:
+                    st.button("Next", on_click=next_page)
 
     else:
         st.error(f"Failed with status code:  ")
