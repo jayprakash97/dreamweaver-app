@@ -37,7 +37,7 @@ def fetch_story_data(payload):
         "Content-Type": "application/json"
     }
     
-    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+    # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
     response = requests.post(AWS_API_URL, headers=headers, json=payload, verify=False)
    
     if response.status_code == 200:
@@ -61,7 +61,7 @@ def fetch_and_decode_images(captions):
             "storyPrompt" : caption
         }  
         json_data = payload2
-        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+        # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
         response = requests.post(AWS_API_URL, headers=headers, json=json_data, verify=False)
         if response.status_code == 200:
             data = response.json()
