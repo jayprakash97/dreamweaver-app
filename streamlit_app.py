@@ -93,15 +93,6 @@ with st.form("form_key"):
 
 # story_theme_value = st.text_input( value=story_theme)
 
-# AWS API URL for POST request
-AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
- 
-# Optional: Set up headers (if using an API key or authentication)
-headers = {
- #   "x-api-key": "your-api-key",  # Remove if your API doesn't require a key
-    "Content-Type": "application/json",  # Specify the content type for the POST request
-}
- 
 # Create a button that triggers the POST request
 if submit_btn:  # st.button("Submit"):
     try: 
