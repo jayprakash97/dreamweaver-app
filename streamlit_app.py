@@ -94,8 +94,8 @@ with st.form("form_key"):
 # story_theme_value = st.text_input( value=story_theme)
 
 # Create a button that triggers the POST request
-if submit_btn:  # st.button("Submit"):
-    try: 
+try: 
+    if submit_btn:  # st.button("Submit"):
         payload = {
            "audience" : audience,
            "story_type" : story_type,
@@ -175,12 +175,13 @@ if submit_btn:  # st.button("Submit"):
         with col5:
             st.markdown(f'<div class="storybook"><p>{story_texts[4]}</p></div>', unsafe_allow_html=True)
             st.image(image5, caption=captions[4], use_column_width=True)
-            
-    except Exception as e:
-        st.error(f"An error occurred: {str(e)}")
-else:
-    st.error(f"Failed with status code: {response.status_code}")
-    st.write(response.text)  # Display the error message from API
+
+    else:
+        st.error(f"Failed with status code: {response.status_code}")
+        st.write(response.text)  # Display the error message from API
+        
+except Exception as e:
+    st.error(f"An error occurred: {str(e)}")
 
 st.sidebar.success("Select a page above.")
 st.sidebar.text("Made with 💕 by WonderScribe")
