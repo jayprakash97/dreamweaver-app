@@ -104,90 +104,92 @@ headers = {
  
 # Create a button that triggers the POST request
 if submit_btn:  # st.button("Submit"):
-    payload = {
-       "audience" : audience,
-       "story_type" : story_type,
-       "main_character" : main_character,
-       "story_theme" : story_theme, # 'Brushing the tooth',
-       "moral_lesson" : moral_lesson,
-       "setting" : story_setting, 
-       "word_count" : story_length,
-        "api_Path" : "getStory"
-      }
-    # Create the payload (data) to be sent in the POST request
+    try: 
+        payload = {
+           "audience" : audience,
+           "story_type" : story_type,
+           "main_character" : main_character,
+           "story_theme" : story_theme, # 'Brushing the tooth',
+           "moral_lesson" : moral_lesson,
+           "setting" : story_setting, 
+           "word_count" : story_length,
+            "api_Path" : "getStory"
+          }
+        # Create the payload (data) to be sent in the POST request
+     
+        story_texts, captions = fetch_story_data(payload)
+        decoded_images = fetch_and_decode_images(captions)
 
-    story_texts, captions = fetch_story_data(payload)
-    decoded_images = fetch_and_decode_images(captions)
-
-    image1 = image_decode(decoded_images[0])
-    # st.image(image1, caption='Decoded Image', use_column_width=True)
-            
-    image2 = image_decode(decoded_images[1])
-    # st.image(image2, caption='Decoded Image', use_column_width=True)
-
-    image3 = image_decode(decoded_images[2])
-    # st.image(image3, caption='Decoded Image', use_column_width=True)
-            
-    image4 = image_decode(decoded_images[3])
-    # st.image(image4, caption='Decoded Image', use_column_width=True)
-
-    image5 = image_decode(decoded_images[4])
+        image1 = image_decode(decoded_images[0])
+        # st.image(image1, caption='Decoded Image', use_column_width=True)
+                
+        image2 = image_decode(decoded_images[1])
+        # st.image(image2, caption='Decoded Image', use_column_width=True)
+    
+        image3 = image_decode(decoded_images[2])
+        # st.image(image3, caption='Decoded Image', use_column_width=True)
+                
+        image4 = image_decode(decoded_images[3])
+        # st.image(image4, caption='Decoded Image', use_column_width=True)
+    
+        image5 = image_decode(decoded_images[4])
   
-    st.markdown("""
-        <style>
-            .storybook {
-                        font-family: 'Courier New', Courier, monospace;
-                        background-color: #f9f5ec;
-                        padding: 50px;
-                        border-radius: 10px;
-                        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
-                        line-height: 1.6;
-                    }
-                    h1 {
-                        color: #8B4513;
-                    }
-                    p {
-                        font-size: 18px;
-                        color: #5a4a3f;
-                    }
-                    .center {
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                        width: 50%;
-                    }
-                    .container {
-                        display: flex;
-                        justify-content: space-between;
-                    }
-        </style>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+            <style>
+                .storybook {
+                            font-family: 'Courier New', Courier, monospace;
+                            background-color: #f9f5ec;
+                            padding: 50px;
+                            border-radius: 10px;
+                            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+                            line-height: 1.6;
+                        }
+                        h1 {
+                            color: #8B4513;
+                        }
+                        p {
+                            font-size: 18px;
+                            color: #5a4a3f;
+                        }
+                        .center {
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                            width: 50%;
+                        }
+                        .container {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+            </style>
+        """, unsafe_allow_html=True)
          
-    # Title for the storybook
-    st.title("📖 My Storybook")
-
-    col1, col2, col3, col4, col5 = st.columns(5)
-        
-    with col1:
-        st.markdown(f'<div class="storybook"><p>{story_texts[0]}</p></div>', unsafe_allow_html=True)
-        st.image(image1, caption=captions[0], use_column_width=True)
-    with col2:
-        st.markdown(f'<div class="storybook"><p>{story_texts[1]}</p></div>', unsafe_allow_html=True)
-        st.image(image2, caption=captions[1], use_column_width=True)
-    with col3:
-        st.markdown(f'<div class="storybook"><p>{story_texts[2]}</p></div>', unsafe_allow_html=True)
-        st.image(image3, caption=captions[2], use_column_width=True)
-    with col4:
-        st.markdown(f'<div class="storybook"><p>{story_texts[3]}</p></div>', unsafe_allow_html=True)
-        st.image(image4, caption=captions[3], use_column_width=True)
-    with col5:
-        st.markdown(f'<div class="storybook"><p>{story_texts[4]}</p></div>', unsafe_allow_html=True)
-        st.image(image5, caption=captions[4], use_column_width=True)
-    else:
-        st.error(f"Failed with status code: {response.status_code}")
-        st.write(response.text)  # Display the error message from API
-except Exception as e:
-    st.error(f"An error occurred: {str(e)}")
+        # Title for the storybook
+        st.title("📖 My Storybook")
+    
+        col1, col2, col3, col4, col5 = st.columns(5)
+            
+        with col1:
+            st.markdown(f'<div class="storybook"><p>{story_texts[0]}</p></div>', unsafe_allow_html=True)
+            st.image(image1, caption=captions[0], use_column_width=True)
+        with col2:
+            st.markdown(f'<div class="storybook"><p>{story_texts[1]}</p></div>', unsafe_allow_html=True)
+            st.image(image2, caption=captions[1], use_column_width=True)
+        with col3:
+            st.markdown(f'<div class="storybook"><p>{story_texts[2]}</p></div>', unsafe_allow_html=True)
+            st.image(image3, caption=captions[2], use_column_width=True)
+        with col4:
+            st.markdown(f'<div class="storybook"><p>{story_texts[3]}</p></div>', unsafe_allow_html=True)
+            st.image(image4, caption=captions[3], use_column_width=True)
+        with col5:
+            st.markdown(f'<div class="storybook"><p>{story_texts[4]}</p></div>', unsafe_allow_html=True)
+            st.image(image5, caption=captions[4], use_column_width=True)
+            
+    except Exception as e:
+        st.error(f"An error occurred: {str(e)}")
+else:
+    st.error(f"Failed with status code: {response.status_code}")
+    st.write(response.text)  # Display the error message from API
 
 st.sidebar.success("Select a page above.")
 st.sidebar.text("Made with 💕 by WonderScribe")
