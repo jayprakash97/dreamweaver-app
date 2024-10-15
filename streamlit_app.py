@@ -57,7 +57,7 @@ def fetch_and_decode_images(captions):
     decoded_images = []
     for caption in captions:
         payload2 = {
-            "apiPath" : 'getImage',
+            "api_Path" : 'getImage',
             "storyPrompt" : caption
         }  
         json_data = payload2
