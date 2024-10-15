@@ -176,7 +176,7 @@ try:
             st.markdown(f'<div class="storybook"><p>{story_texts[4]}</p></div>', unsafe_allow_html=True)
             st.image(image5, caption=captions[4], use_column_width=True)
  
-        Story_pages = [
+        story_pages = [
                 {
                     "text": story_texts[0],
                     "image": decoded_images[0],
