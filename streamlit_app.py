@@ -178,6 +178,7 @@ def main():
             st.cache_data.clear()
             st.session_state.cache_cleared = True
             st.success("Cache has been cleared! Refresh the page to fetch new data.")
+            submit_btn = False
 
 
         # if st.session_state.current_page == "About":
@@ -241,10 +242,12 @@ def main():
             def next_page():
                 if st.session_state.page_index < len(story_pages) - 1:
                     st.session_state.page_index += 1
+                    submit_btn = True
  
             def prev_page():
                 if st.session_state.page_index > 0:
                     st.session_state.page_index -= 1
+                    submit_btn = True
  
             # Get the current page's content
             current_page = story_pages[st.session_state.page_index]
