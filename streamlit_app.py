@@ -142,8 +142,22 @@ def main():
     </style>
     """, unsafe_allow_html=True)
  
+    with st.form("form_key"):
+        st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
+        gender = st.selectbox("Your Gender", options=["Male", "Female", "Don't want to share"])
+        main_character = st.text_input("What will be the name of the main character?", placeholder="Who will star in your story?")
+        audience = st.selectbox("Audience", options=["children", "young adult", "adult", "senior"])
+        story_setting = st.selectbox("Story Setthing", options=["Magical Kingdoms", "Underwater Kingdoms", "Pirate ships", "Exotic locations", "Imaginary world", "Digital words", "Others"])
+        story_type = st.selectbox("Story Type", options=["Fantacy", "Fairy Tales", "Mythology", "Bedtime stories", "Adventure", "Mystery", "Love", "Horror", ])
+        story_theme = st.text_input("What would be topic of the story?", placeholder="Leave brief idea of a story")
+        moral_lesson = st.text_input("What would be the moral of this story?", placeholder="Enter moral lesson from this story")
+        story_length = st.selectbox("Story Length (in words) ", options=["300", "400", "500"])
+    
+        submit_btn = st.form_submit_button("Submit")
+ 
     try:
-        st.title("Children's Story")
+        # st.title("Children's Story")
+      
         st.sidebar.title("📚 Table of Contents")
         menu_options = ["About", "Storybook"]
 
@@ -155,6 +169,7 @@ def main():
             st.session_state.current_page = "About"
         if st.sidebar.button("Storybook"):
             st.session_state.current_page = "Storybook"
+
 
         if st.sidebar.button("Reset Cache"):
             st.cache_data.clear()
@@ -170,7 +185,8 @@ def main():
 
         
         # Content for the 'Storybook' section
-        elif st.session_state.current_page == "Storybook":
+
+        elif st.session_state.current_page == "Storybook" and submit_btn == "Submit" 
             # Fetch story data once
             story_texts, captions = fetch_story_data()
  
