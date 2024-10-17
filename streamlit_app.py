@@ -165,10 +165,10 @@ def main():
         if 'current_page' not in st.session_state:
             st.session_state.current_page = "About"  # Default page
  
-        if st.sidebar.button("About"):
-            st.session_state.current_page = "About"
-        if st.sidebar.button("Storybook"):
-            st.session_state.current_page = "Storybook"
+        # if st.sidebar.button("About"):
+        #     st.session_state.current_page = "About"
+        # if st.sidebar.button("Storybook"):
+        #     st.session_state.current_page = "Storybook"
 
 
         if st.sidebar.button("Reset Cache"):
@@ -177,16 +177,16 @@ def main():
             st.success("Cache has been cleared! Refresh the page to fetch new data.")
 
 
-        if st.session_state.current_page == "About":
-            st.title("Welcome to the Storybook App")
-            st.markdown("""
-                    This interactive storybook app allows you to journey through a magical story, page by page, with beautiful illustrations accompanying the text.
-                   """)
+        # if st.session_state.current_page == "About":
+        #     st.title("Welcome to the Storybook App")
+        #     st.markdown("""
+        #             This interactive storybook app allows you to journey through a magical story, page by page, with beautiful illustrations accompanying the text.
+        #            """)
 
         
         # Content for the 'Storybook' section
 
-        elif st.session_state.current_page == "Storybook" and submit_btn == "Submit": 
+        if submit_btn == "Submit": 
             # Fetch story data once
             story_texts, captions = fetch_story_data()
  
