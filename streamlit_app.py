@@ -269,14 +269,17 @@ def main():
  
             # Create Previous and Next buttons for navigation
             col1, col2, col3 = st.columns([1, 2, 1])
- 
+
+            st.write(st.session_state.page_index)
             with col1:
                 if st.session_state.page_index > 0:
                     st.button("Previous", on_click=prev_page)
+                    submit_btn = True
  
             with col3:
                 if st.session_state.page_index < len(story_pages) - 1:
                     st.button("Next", on_click=next_page)
+                    submit_btn = True
     except Exception as e:
         st.error(f"An error occurred: {str(e)}")
  
