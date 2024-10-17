@@ -15,18 +15,19 @@ def image_decode(image_data_decode):
         return Image.open(BytesIO(image_data))
  
 @st.cache_data 
-def fetch_story_data(_force_refresh=False):
+def fetch_story_data(payload, _force_refresh=False):
     if _force_refresh:
         st.cache_data.clear()
     AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
     headers = {
         "Content-Type": "application/json"
     }
-    payload1 = {
-        "api_Path" : 'getStory',
-        "storyPrompt" : ''
-    }
-    json_data = payload1
+    # payload1 = {
+    #     "api_Path" : 'getStory',
+    #     "storyPrompt" : ''
+    # }
+ 
+    json_data = payload
  
     response = requests.post(AWS_API_URL, headers=headers, json=json_data)
     if response.status_code == 200:
@@ -195,15 +196,23 @@ def main():
         # Content for the 'Storybook' section
 
         if st.session_state.submit_btn and st.session_state.current_page == "Storybook": 
-            # Fetch story data once
-            story_texts, captions = fetch_story_data()
+            payload = {
+                "audience" : audience,
+                "story_type" : story_type,
+                "main_character" : main_character,
+                "story_theme" : story_theme, # 'Brushing the tooth',
+                "moral_lesson" : moral_lesson,
+                "setting" : story_setting, 
+                "word_count" : story_length,
+                 "api_Path" : "getStory"
+               }
+     
+            story_texts, captions = fetch_story_data(payload)
             decoded_images = fetch_and_decode_images(captions)
 
             # Reset the cache_cleared flag. Don't clear the cache
             st.session_state.cache_cleared = False
-
          
-
             story_pages = [
                 {
                     "text": story_texts[0],
