@@ -163,7 +163,7 @@ def main():
 
         st.write( st.session_state )
         st.write( submit_btn )
-
+        
         st.session_state.current_page = "Storybook"
         # if 'current_page' not in st.session_state:
         #     st.session_state.current_page = "About"  # Default page
@@ -189,7 +189,7 @@ def main():
         
         # Content for the 'Storybook' section
 
-        if submit_btn == "Submit" and st.session_state.current_page == "Storybook": 
+        if submit_btn and st.session_state.current_page == "Storybook": 
             # Fetch story data once
             story_texts, captions = fetch_story_data()
  
