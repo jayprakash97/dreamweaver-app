@@ -157,12 +157,15 @@ def main():
  
     try:
         # st.title("Children's Story")
-      
+        if submit_btn:
+           # Creating a session varibale to maintain the state
+           st.session_state.submit_btn = True
+         
         st.sidebar.title("📚 Table of Contents")
         menu_options = ["About", "Storybook"]
 
         st.write( st.session_state )
-        st.write( submit_btn )
+        st.write( st.session_state.submit_btn )
         
         st.session_state.current_page = "Storybook"
         # if 'current_page' not in st.session_state:
@@ -178,7 +181,7 @@ def main():
             st.cache_data.clear()
             st.session_state.cache_cleared = True
             st.success("Cache has been cleared! Refresh the page to fetch new data.")
-            submit_btn = False
+            st.session_state.submit_btn = False
 
 
         # if st.session_state.current_page == "About":
@@ -190,7 +193,7 @@ def main():
         
         # Content for the 'Storybook' section
 
-        if submit_btn and st.session_state.current_page == "Storybook": 
+        if st.session_state.submit_btn and st.session_state.current_page == "Storybook": 
             # Fetch story data once
             story_texts, captions = fetch_story_data()
             decoded_images = fetch_and_decode_images(captions)
@@ -242,12 +245,12 @@ def main():
             def next_page():
                 if st.session_state.page_index < len(story_pages) - 1:
                     st.session_state.page_index += 1
-                    submit_btn = True
+                    st.session_state.submit_btn = True
  
             def prev_page():
                 if st.session_state.page_index > 0:
                     st.session_state.page_index -= 1
-                    submit_btn = True
+                    st.session_state.submit_btn = True
  
             # Get the current page's content
             current_page = story_pages[st.session_state.page_index]
@@ -274,12 +277,12 @@ def main():
             with col1:
                 if st.session_state.page_index > 0:
                     st.button("Previous", on_click=prev_page)
-                    submit_btn = True
+                    st.session_state.submit_btn = True
  
             with col3:
                 if st.session_state.page_index < len(story_pages) - 1:
                     st.button("Next", on_click=next_page)
-                    submit_btn = True
+                    st.session_state.submit_btn = True
     except Exception as e:
         st.error(f"An error occurred: {str(e)}")
  
