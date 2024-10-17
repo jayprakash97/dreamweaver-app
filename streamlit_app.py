@@ -195,7 +195,7 @@ def main():
             decoded_images = fetch_and_decode_images(captions)
 
             # Reset the cache_cleared flag. Don't clear the cache
-            st.session_state.cache_cleared = False
+            # st.session_state.cache_cleared = False
 
          
 
