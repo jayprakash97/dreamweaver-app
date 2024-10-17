@@ -192,11 +192,10 @@ def main():
         if submit_btn and st.session_state.current_page == "Storybook": 
             # Fetch story data once
             story_texts, captions = fetch_story_data()
- 
             decoded_images = fetch_and_decode_images(captions)
 
             # Reset the cache_cleared flag. Don't clear the cache
-            # st.session_state.cache_cleared = False
+            st.session_state.cache_cleared = False
 
          
 
