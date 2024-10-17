@@ -15,7 +15,9 @@ def image_decode(image_data_decode):
         return Image.open(BytesIO(image_data))
  
 @st.cache_data 
-def fetch_story_data():
+def fetch_story_data(_force_refresh=False):
+    if _force_refresh:
+        st.cache_data.clear()
     AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
     headers = {
         "Content-Type": "application/json"
@@ -34,7 +36,9 @@ def fetch_story_data():
         return [], []
 
 @st.cache_data
-def fetch_and_decode_images(captions):
+def fetch_and_decode_images(captions, _force_refresh=False):
+    if _force_refresh:
+        st.cache_data.clear()
     AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
     headers = {
         "Content-Type": "application/json"
@@ -54,6 +58,9 @@ def fetch_and_decode_images(captions):
  
  
 def main():
+     if 'cache_cleared' not in st.session_state:
+         st.session_state.cache_cleared = False
+      
     # Set the page configuration with a wide layout for a book-like feel
     st.set_page_config(page_title="Interactive Storybook", page_icon="📖", layout="wide")
     # Add custom CSS for the storybook theme
@@ -147,20 +154,32 @@ def main():
             st.session_state.current_page = "About"
         if st.sidebar.button("Storybook"):
             st.session_state.current_page = "Storybook"
- 
+
+        if st.sidebar.button("Reset Cache"):
+            st.cache_data.clear()
+            st.session_state.cache_cleared = True
+            st.success("Cache has been cleared! Refresh the page to fetch new data.")
+
+
         if st.session_state.current_page == "About":
             st.title("Welcome to the Storybook App")
             st.markdown("""
                     This interactive storybook app allows you to journey through a magical story, page by page, with beautiful illustrations accompanying the text.
                    """)
- 
+
+        
         # Content for the 'Storybook' section
         elif st.session_state.current_page == "Storybook":
             # Fetch story data once
             story_texts, captions = fetch_story_data()
  
             decoded_images = fetch_and_decode_images(captions)
- 
+
+            # Reset the cache_cleared flag. Don't clear the cache
+            st.session_state.cache_cleared = False
+
+         
+
             story_pages = [
                 {
                     "text": story_texts[0],
