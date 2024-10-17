@@ -162,8 +162,10 @@ def main():
         menu_options = ["About", "Storybook"]
 
         st.write( st.session_state )
-        if 'current_page' not in st.session_state:
-            st.session_state.current_page = "About"  # Default page
+
+        st.session_state.current_page = "Storybook"
+        # if 'current_page' not in st.session_state:
+        #     st.session_state.current_page = "About"  # Default page
  
         # if st.sidebar.button("About"):
         #     st.session_state.current_page = "About"
