@@ -14,7 +14,7 @@ def image_decode(image_data_decode):
         image_data = base64.b64decode(image_data_decode)
         return Image.open(BytesIO(image_data))
  
- 
+@st.cache_data 
 def fetch_story_data():
     AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
     headers = {
@@ -32,8 +32,8 @@ def fetch_story_data():
         return data["story_texts"], data["captions"]
     else:
         return [], []
- 
- 
+
+@st.cache_data
 def fetch_and_decode_images(captions):
     AWS_API_URL = "https://wacnqhon34.execute-api.us-east-1.amazonaws.com/dev/"
     headers = {
