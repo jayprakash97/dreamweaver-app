@@ -186,7 +186,7 @@ def main():
         
         # Content for the 'Storybook' section
 
-        elif st.session_state.current_page == "Storybook" and submit_btn == "Submit" 
+        elif st.session_state.current_page == "Storybook" and submit_btn == "Submit": 
             # Fetch story data once
             story_texts, captions = fetch_story_data()
  
