@@ -58,8 +58,8 @@ def fetch_and_decode_images(captions, _force_refresh=False):
  
  
 def main():
-     if 'cache_cleared' not in st.session_state:
-         st.session_state.cache_cleared = False
+    if 'cache_cleared' not in st.session_state:
+        st.session_state.cache_cleared = False
       
     # Set the page configuration with a wide layout for a book-like feel
     st.set_page_config(page_title="Interactive Storybook", page_icon="📖", layout="wide")
@@ -146,7 +146,8 @@ def main():
         st.title("Children's Story")
         st.sidebar.title("📚 Table of Contents")
         menu_options = ["About", "Storybook"]
- 
+
+        st.write( st.session_state )
         if 'current_page' not in st.session_state:
             st.session_state.current_page = "About"  # Default page
  
