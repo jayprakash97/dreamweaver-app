@@ -158,23 +158,23 @@ try:
         # Title for the storybook
         st.title("📖 My Storybook")
     
-        col1, col2, col3, col4, col5 = st.columns(5)
+        # col1, col2, col3, col4, col5 = st.columns(5)
             
-        with col1:
-            st.markdown(f'<div class="storybook"><p>{story_texts[0]}</p></div>', unsafe_allow_html=True)
-            st.image(image1, caption=captions[0], use_column_width=True)
-        with col2:
-            st.markdown(f'<div class="storybook"><p>{story_texts[1]}</p></div>', unsafe_allow_html=True)
-            st.image(image2, caption=captions[1], use_column_width=True)
-        with col3:
-            st.markdown(f'<div class="storybook"><p>{story_texts[2]}</p></div>', unsafe_allow_html=True)
-            st.image(image3, caption=captions[2], use_column_width=True)
-        with col4:
-            st.markdown(f'<div class="storybook"><p>{story_texts[3]}</p></div>', unsafe_allow_html=True)
-            st.image(image4, caption=captions[3], use_column_width=True)
-        with col5:
-            st.markdown(f'<div class="storybook"><p>{story_texts[4]}</p></div>', unsafe_allow_html=True)
-            st.image(image5, caption=captions[4], use_column_width=True)
+        # with col1:
+        #     st.markdown(f'<div class="storybook"><p>{story_texts[0]}</p></div>', unsafe_allow_html=True)
+        #     st.image(image1, caption=captions[0], use_column_width=True)
+        # with col2:
+        #     st.markdown(f'<div class="storybook"><p>{story_texts[1]}</p></div>', unsafe_allow_html=True)
+        #     st.image(image2, caption=captions[1], use_column_width=True)
+        # with col3:
+        #     st.markdown(f'<div class="storybook"><p>{story_texts[2]}</p></div>', unsafe_allow_html=True)
+        #     st.image(image3, caption=captions[2], use_column_width=True)
+        # with col4:
+        #     st.markdown(f'<div class="storybook"><p>{story_texts[3]}</p></div>', unsafe_allow_html=True)
+        #     st.image(image4, caption=captions[3], use_column_width=True)
+        # with col5:
+        #     st.markdown(f'<div class="storybook"><p>{story_texts[4]}</p></div>', unsafe_allow_html=True)
+        #     st.image(image5, caption=captions[4], use_column_width=True)
  
         story_pages = [
                 {
@@ -246,7 +246,7 @@ try:
                     st.button("Next", on_click=next_page)
 
     else:
-        st.error(f"Failed with status code:  ")
+        st.error(f"Kindly enter your input and submit the button:  ")
         
 except Exception as e:
     st.error(f"An error occurred: {str(e)}")
