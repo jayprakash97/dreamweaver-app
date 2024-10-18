@@ -45,11 +45,20 @@ def fetch_and_decode_images(captions, _force_refresh=False):
         "Content-Type": "application/json"
     }
     decoded_images = []
-    for caption in captions:
-        payload2 = {
-            "api_Path" : 'getImage',
-            "storyPrompt" : caption
-        }  
+    
+    for index, caption in enumerate(captions):
+        if index == 0:
+            payload2 = {
+                "api_Path" : 'getImage',
+                "storyPrompt" : caption,
+                "previousPrompt" : ''
+            }
+        else:
+            payload2 = {
+                "api_Path" : 'getImage',
+                "storyPrompt" : caption,
+                "previousPrompt" : captions[index - 1]
+            }   
         json_data = payload2
         response = requests.post(AWS_API_URL, headers=headers, json=json_data)
         if response.status_code == 200:
