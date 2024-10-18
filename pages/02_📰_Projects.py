@@ -1,9 +1,9 @@
 import streamlit as st
 
 validation_query_response = {
-  0: {"query": "jay 300",
+  0: {"query": "friendships between boy and girl",
       "gold_response": "story about etc "},
-  1: {"query": "Mike 400",
+  1: {"query": "Brushing the tooth",
       "gold_response": " "}
 }
 
