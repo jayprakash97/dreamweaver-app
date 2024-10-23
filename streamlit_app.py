@@ -175,8 +175,8 @@ def main():
         st.sidebar.title("📚 Table of Contents")
         menu_options = ["About", "Storybook"]
 
-        st.write( st.session_state )
-        st.write( st.session_state.submit_btn )
+        # st.write( st.session_state )
+        # st.write( st.session_state.submit_btn )
         
         st.session_state.current_page = "Storybook"
         # if 'current_page' not in st.session_state:
@@ -295,7 +295,7 @@ def main():
             # Create Previous and Next buttons for navigation
             col1, col2, col3 = st.columns([1, 2, 1])
 
-            st.write(st.session_state.page_index)
+            st.write("Page No:", st.session_state.page_index)
             with col1:
                 if st.session_state.page_index > 0:
                     st.button("Previous", on_click=prev_page)
