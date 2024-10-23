@@ -162,7 +162,7 @@ def main():
         story_theme = st.text_input("What would be topic of the story?", placeholder="Leave brief idea of a story")
         moral_lesson = st.text_input("What would be the moral of this story?", placeholder="Enter moral lesson from this story")
         story_length = st.selectbox("Story Length (in words) ", options=["300", "400", "500"])
-        story_lang = st.selectbox("Story lang", options=["English", "Spanish", "Hindi", "Mandarin","Urdu","Tigrinya"])
+        story_lang = st.selectbox("Story lang", options=["English", "Spanish", "French", "Mandarin","Hindi","", "German", "Tagalog", "Urdu", "Arabic"])
         
         submit_btn = st.form_submit_button("Submit")
  
