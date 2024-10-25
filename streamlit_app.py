@@ -9,7 +9,7 @@ from io import BytesIO
 from PIL import Image
 import requests
 import boto3
- 
+
 s3client = boto3.client(
     's3',
     aws_access_key_id="AKIAX6K5HPJHDJCMKT67",
