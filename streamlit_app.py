@@ -255,13 +255,13 @@ def main():
                     #"image": "img4.png",
                     "image": decoded_images[4],
                     "caption": captions[4]
-                }
+                },
                 {
                     "text": story_texts[5],
                     #"image": "img4.png",
                     "image": decoded_images[5],
                     "caption": captions[5]
-                }
+                },
                 {
                     "text": story_texts[6],
                     #"image": "img4.png",
