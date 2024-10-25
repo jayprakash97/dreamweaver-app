@@ -8,8 +8,14 @@ import re
 from io import BytesIO
 from PIL import Image
 import requests
+import boto3
  
- 
+s3client = boto3.client(
+    's3',
+    aws_access_key_id="AKIAX6K5HPJHDJCMKT67",
+    aws_secret_access_key="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"
+)
+
 def image_decode(image_data_decode):
         image_data = base64.b64decode(image_data_decode)
         return Image.open(BytesIO(image_data))
@@ -32,9 +38,9 @@ def fetch_story_data(payload, _force_refresh=False):
     response = requests.post(AWS_API_URL, headers=headers, json=json_data)
     if response.status_code == 200:
         data = response.json() 
-        return data["story_texts"], data["captions"]
+        return data["story_texts"], data["captions"], data["storyfiles"]
     else:
-        return [], []
+        return [], [], []
 
 @st.cache_data
 def fetch_and_decode_images(captions, _force_refresh=False):
@@ -219,9 +225,18 @@ def main():
                  "api_Path" : "getStory"
                }
      
-            story_texts, captions = fetch_story_data(payload)
+            story_texts, captions, storyfiles = fetch_story_data(payload)
             decoded_images = fetch_and_decode_images(captions)
+         
+            audioStoryFiles = []
+            for storyFile in storyfiles:
+                output = s3client.generate_presigned_url('get_object',
+                                                    Params={'Bucket': 'wonderstorytexttoaudiofile',
+                                                            'Key': storyFile},
+                                                    ExpiresIn=3600)
+                audioStoryFiles.append(output)
 
+         
             # Reset the cache_cleared flag. Don't clear the cache
             st.session_state.cache_cleared = False
          
@@ -230,43 +245,50 @@ def main():
                     "text": story_texts[0],
                     #"image": "img1.png",
                     "image": decoded_images[0],
-                    "caption": captions[0]
+                    "caption": captions[0],
+                    "audio": audioStoryFiles[0]
                 },
                 {
                     "text": story_texts[1],
                     #"image": "img2.png",
                     "image": decoded_images[1],
-                    "caption": captions[1]
+                    "caption": captions[1],
+                    "audio": audioStoryFiles[1]
                 },
                 {
                     "text": story_texts[2],
                     #"image": "img3.png",
                     "image": decoded_images[2],
-                    "caption": captions[2]
+                    "caption": captions[2],
+                    "audio": audioStoryFiles[2]
                 },
                 {
                     "text": story_texts[3],
                     #"image": "img4.png",
                     "image": decoded_images[3],
-                    "caption": captions[3]
+                    "caption": captions[3],
+                    "audio": audioStoryFiles[3]
                 },
                 {
                     "text": story_texts[4],
                     #"image": "img4.png",
                     "image": decoded_images[4],
-                    "caption": captions[4]
+                    "caption": captions[4],
+                    "audio": audioStoryFiles[4]
                 },
                 {
                     "text": story_texts[5],
                     #"image": "img4.png",
                     "image": decoded_images[5],
-                    "caption": captions[5]
+                    "caption": captions[5],
+                    "audio": audioStoryFiles[5]
                 },
                 {
                     "text": story_texts[6],
                     #"image": "img4.png",
                     "image": decoded_images[6],
-                    "caption": captions[6]
+                    "caption": captions[6],
+                    "audio": audioStoryFiles[6]
                 }
             ]
  
@@ -292,6 +314,8 @@ def main():
             st.title("📖 My Storybook")
             #image = Image.open(current_page["image"])
             image = image_decode(current_page["image"])
+            st.write(current_page["audio"])
+            # st.audio(current_page["audio"], format='audio/mp3')
             # Create two columns: one for the story text, one for the image
             col1, col2 = st.columns(2)
  
@@ -299,6 +323,7 @@ def main():
                 #st.markdown(f'<div class="storybook-text">{current_page["text"]}</div>', unsafe_allow_html=True)
                 #st.markdown(f'<div class="storybook-text" style="height: {image.height}px;"><p>{current_page["text"]}</p></div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="storybook-text"><p>{current_page["text"]}</p></div>', unsafe_allow_html=True)
+                st.audio(current_page["audio"], format='audio/mp3')
             with col2:
                 # Use custom HTML and CSS for image with the desired style
                 #st.markdown(f'<img src="{current_page["image"]}" alt="{current_page["caption"]}" class="storybook-image">', unsafe_allow_html=True)
