@@ -12,8 +12,8 @@ import boto3
 
 s3client = boto3.client(
     's3',
-    aws_access_key_id="AKIAX6K5HPJHDJCMKT67",
-    aws_secret_access_key="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"
+    aws_access_key_id="",
+    aws_secret_access_key=""
 )
 
 def image_decode(image_data_decode):
