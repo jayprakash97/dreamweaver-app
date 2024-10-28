@@ -10,7 +10,7 @@ from PIL import Image
 import requests
 import boto3
 import os
-============
+
 def get_aws_credentials():
     # Create a Secrets Manager client
     client = boto3.client("secretsmanager", region_name="us-east-1")
@@ -22,7 +22,6 @@ def get_aws_credentials():
 # Use the retrieved credentials to access S3
 aws_access_key_id, aws_secret_access_key = get_aws_credentials()
  
-============
 s3client = boto3.client(
     's3',
     aws_access_key_id=aws_access_key_id,
