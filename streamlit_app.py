@@ -46,7 +46,7 @@ def get_aws_credentials():
 	    st.text("Credentials not available.")
 	    raise
     except ClientError as e:
-	    st.write(f "Error retrieving secret: {e}")
+	    st.text(f"Error retrieving secret: {e}")
 	    raise
 
 aws_access_key_id, aws_secret_access_key = get_aws_credentials()
