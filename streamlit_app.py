@@ -12,8 +12,7 @@ import boto3
 
 def get_aws_credentials():
     # Create a Secrets Manager client
-    session = boto3.session.Session()
-    client = session.client("secretsmanager", region_name="us-east-1")
+    client = boto3.client("secretsmanager", region_name="us-east-1")
     # Retrieve the secret
     response = client.get_secret_value(SecretId="jaypeeidsecretcode")
     # response = client.get_secret_value(SecretId=st.secrets["streamlit_s3_credentials"])
