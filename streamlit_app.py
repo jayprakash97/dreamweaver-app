@@ -46,6 +46,7 @@ def get_aws_credentials():
         print("Credentials not available.")
 
 aws_access_key_id, aws_secret_access_key = get_aws_credentials()
+
  
 s3client = boto3.client(
     's3',
