@@ -25,37 +25,37 @@ from botocore.exceptions import NoCredentialsError, ClientError
 # # Use the retrieved credentials to access S3
 # aws_access_key_id, aws_secret_access_key = get_aws_credentials()
 
-def get_aws_credentials():
-    secret_name = "jaypeeidsecretcode"
-    # Your secret name
-    region_name = "us-east-1"
-    # Replace with your region
-    # Create a Secrets Manager client
-    session = boto3.session.Session()
-    client = session.client(service_name = 'secretsmanager', region_name = region_name)
-    try:
-        # Retrieve the secret value
-        response = client.get_secret_value(SecretId = secret_name)
-        # Decrypts secret using the associated KMS CMK
-        secret = json.loads(response['SecretString'])
-        # Extract AWS credentials
-        aws_access_key_id = secret['AWS_ACCESS_KEY_ID']
-        aws_secret_access_key = secret['AWS_SECRET_ACCESS_KEY']
-        return aws_access_key_id, aws_secret_access_key
-    except NoCredentialsError:
-	    st.text("Credentials not available.")
-	    raise
-    except ClientError as e:
-	    st.text(f"Error retrieving secret: {e}")
-	    raise
+# def get_aws_credentials():
+#     secret_name = "jaypeeidsecretcode"
+#     # Your secret name
+#     region_name = "us-east-1"
+#     # Replace with your region
+#     # Create a Secrets Manager client
+#     session = boto3.session.Session()
+#     client = session.client(service_name = 'secretsmanager', region_name = region_name)
+#     try:
+#         # Retrieve the secret value
+#         response = client.get_secret_value(SecretId = secret_name)
+#         # Decrypts secret using the associated KMS CMK
+#         secret = json.loads(response['SecretString'])
+#         # Extract AWS credentials
+#         aws_access_key_id = secret['AWS_ACCESS_KEY_ID']
+#         aws_secret_access_key = secret['AWS_SECRET_ACCESS_KEY']
+#         return aws_access_key_id, aws_secret_access_key
+#     except NoCredentialsError:
+# 	    st.text("Credentials not available.")
+# 	    raise
+#     except ClientError as e:
+# 	    st.text(f"Error retrieving secret: {e}")
+# 	    raise
 
-aws_access_key_id, aws_secret_access_key = get_aws_credentials()
+# aws_access_key_id, aws_secret_access_key = get_aws_credentials()
 
  
 s3client = boto3.client(
     's3',
-    aws_access_key_id="aws_access_key_id",
-    aws_secret_access_key="aws_secret_access_key"
+    aws_access_key_id="",
+    aws_secret_access_key=""
 )
     # aws_access_key_id=aws_access_key_id,
     # aws_secret_access_key=aws_secret_access_key
