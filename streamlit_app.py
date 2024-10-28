@@ -9,13 +9,13 @@ from io import BytesIO
 from PIL import Image
 import requests
 import boto3
-import os
 
 def get_aws_credentials():
     # Create a Secrets Manager client
     client = boto3.client("secretsmanager", region_name="us-east-1")
     # Retrieve the secret
-    response = client.get_secret_value(SecretId=st.secrets["streamlit_s3_credentials"])
+    response = client.get_secret_value(SecretId="jaypeeidsecretcode"])
+    # response = client.get_secret_value(SecretId=st.secrets["streamlit_s3_credentials"])
     secret_dict = json.loads(response["SecretString"])
     return secret_dict["AWS_ACCESS_KEY_ID"], secret_dict["AWS_SECRET_ACCESS_KEY"]
  
