@@ -10,12 +10,25 @@ from PIL import Image
 import requests
 import boto3
 import os
-
+============
+def get_aws_credentials():
+    # Create a Secrets Manager client
+    client = boto3.client("secretsmanager", region_name="us-east-1")
+    # Retrieve the secret
+    response = client.get_secret_value(SecretId=st.secrets["streamlit_s3_credentials"])
+    secret_dict = json.loads(response["SecretString"])
+    return secret_dict["AWS_ACCESS_KEY_ID"], secret_dict["AWS_SECRET_ACCESS_KEY"]
+ 
+# Use the retrieved credentials to access S3
+aws_access_key_id, aws_secret_access_key = get_aws_credentials()
+ 
+============
 s3client = boto3.client(
     's3',
-    aws_access_key_id=st.secrets["AWS_ACCESS_KEY_ID"],
-    aws_secret_access_key=st.secrets["AWS_SECRET_ACCESS_KEY"]
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key
 )
+
 
 def image_decode(image_data_decode):
         image_data = base64.b64decode(image_data_decode)
