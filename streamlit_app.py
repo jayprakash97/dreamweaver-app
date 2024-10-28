@@ -41,7 +41,7 @@ def get_aws_credentials():
         # Extract AWS credentials
         aws_access_key_id = secret['AWS_ACCESS_KEY_ID']
         aws_secret_access_key = secret['AWS_SECRET_ACCESS_KEY']
-    return aws_access_key_id, aws_secret_access_key
+        return aws_access_key_id, aws_secret_access_key
     except NoCredentialsError:
         print("Credentials not available.")
 
