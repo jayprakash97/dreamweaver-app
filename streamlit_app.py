@@ -42,8 +42,13 @@ def get_aws_credentials():
         aws_access_key_id = secret['AWS_ACCESS_KEY_ID']
         aws_secret_access_key = secret['AWS_SECRET_ACCESS_KEY']
         return aws_access_key_id, aws_secret_access_key
-    except NoCredentialsError:
-        print("Credentials not available.")
+
+	except NoCredentialsError:
+		print("Credentials not available.")
+		raise
+	except ClientError as e:
+		print(f "Error retrieving secret: {e}")
+	    raise
 
 aws_access_key_id, aws_secret_access_key = get_aws_credentials()
 
