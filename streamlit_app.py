@@ -224,7 +224,7 @@ def main():
            # Creating a session varibale to maintain the state
            st.session_state.submit_btn = True
          
-        st.sidebar.title("📚 Table of Contents")
+        # st.sidebar.title("📚 Table of Contents")
         menu_options = ["About", "Storybook"]
 
         # st.write( st.session_state )
