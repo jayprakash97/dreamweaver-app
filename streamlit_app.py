@@ -52,11 +52,11 @@ from botocore.exceptions import NoCredentialsError, ClientError
 # aws_access_key_id, aws_secret_access_key = get_aws_credentials()
 
  
-# s3client = boto3.client(
-#     's3',
-#     aws_access_key_id="",
-#     aws_secret_access_key=""
-# )
+s3client = boto3.client(
+    's3'
+    # aws_access_key_id="",
+    # aws_secret_access_key=""
+)
     # aws_access_key_id=aws_access_key_id,
     # aws_secret_access_key=aws_secret_access_key
 
@@ -82,11 +82,11 @@ def fetch_story_data(payload, _force_refresh=False):
     response = requests.post(AWS_API_URL, headers=headers, json=json_data)
     if response.status_code == 200:
         data = response.json() 
-        #return data["story_texts"], data["captions"], data["storyfiles"]
-        return data["story_texts"], data["captions"]
+        return data["story_texts"], data["captions"], data["storyfiles"]
+        # return data["story_texts"], data["captions"]
     else:
-        #return [], [], []
-        return [], []
+        return [], [], []
+        # return [], []
 
 @st.cache_data
 def fetch_and_decode_images(captions, _force_refresh=False):
@@ -271,8 +271,8 @@ def main():
                  "api_Path" : "getStory"
                }
      
-            #story_texts, captions, storyfiles = fetch_story_data(payload)
-            story_texts, captions = fetch_story_data(payload)
+            story_texts, captions, storyfiles = fetch_story_data(payload)
+            # story_texts, captions = fetch_story_data(payload)
             decoded_images = fetch_and_decode_images(captions)
          
             # audioStoryFiles = []
@@ -293,49 +293,49 @@ def main():
                     #"image": "img1.png",
                     "image": decoded_images[0],
                     "caption": captions[0]
-                    #"audio": audioStoryFiles[0]
+                    "audio": audioStoryFiles[0]
                 },
                 {
                     "text": story_texts[1],
                     #"image": "img2.png",
                     "image": decoded_images[1],
                     "caption": captions[1]
-                    #"audio": audioStoryFiles[1]
+                    "audio": audioStoryFiles[1]
                 },
                 {
                     "text": story_texts[2],
                     #"image": "img3.png",
                     "image": decoded_images[2],
                     "caption": captions[2]
-                    #"audio": audioStoryFiles[2]
+                    "audio": audioStoryFiles[2]
                 },
                 {
                     "text": story_texts[3],
                     #"image": "img4.png",
                     "image": decoded_images[3],
                     "caption": captions[3]
-                    #"audio": audioStoryFiles[3]
+                    "audio": audioStoryFiles[3]
                 },
                 {
                     "text": story_texts[4],
                     #"image": "img4.png",
                     "image": decoded_images[4],
                     "caption": captions[4]
-                    #"audio": audioStoryFiles[4]
+                    "audio": audioStoryFiles[4]
                 },
                 {
                     "text": story_texts[5],
                     #"image": "img4.png",
                     "image": decoded_images[5],
                     "caption": captions[5]
-                    #"audio": audioStoryFiles[5]
+                    "audio": audioStoryFiles[5]
                 },
                 {
                     "text": story_texts[6],
                     #"image": "img4.png",
                     "image": decoded_images[6],
                     "caption": captions[6]
-                    #"audio": audioStoryFiles[6]
+                    "audio": audioStoryFiles[6]
                 }
             ]
  
@@ -371,7 +371,7 @@ def main():
                 #st.markdown(f'<div class="storybook-text">{current_page["text"]}</div>', unsafe_allow_html=True)
                 #st.markdown(f'<div class="storybook-text" style="height: {image.height}px;"><p>{current_page["text"]}</p></div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="storybook-text"><p>{current_page["text"]}</p></div>', unsafe_allow_html=True)
-                #st.audio(current_page["audio"], format='audio/mp3')
+                st.audio(current_page["audio"], format='audio/mp3')
             with col2:
                 # Use custom HTML and CSS for image with the desired style
                 #st.markdown(f'<img src="{current_page["image"]}" alt="{current_page["caption"]}" class="storybook-image">', unsafe_allow_html=True)
