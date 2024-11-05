@@ -206,15 +206,15 @@ def main():
  
     with st.form("form_key"):
         st.write("Craft personalized stories that bring adventure to life and ignite imagination and creativity")
-        gender = st.selectbox("Your Gender", options=["Male", "Female", "Don't want to share"])
+        gender = st.selectbox("Your Gender", options=["Male", "Female", "Non Binary", "Don't want to share"])
         main_character = st.text_input("What will be the name of the main character?", placeholder="Who will star in your story?")
         audience = st.selectbox("Audience", options=["children", "young adult", "adult", "senior"])
         story_setting = st.selectbox("Story Setthing", options=["Magical Kingdoms", "Underwater Kingdoms", "Pirate ships", "Exotic locations", "Imaginary world", "Digital words", "Others"])
-        story_type = st.selectbox("Story Type", options=["Fantacy", "Fairy Tales", "Mythology", "Bedtime stories", "Adventure", "Mystery", "Love", "Horror", ])
+        story_type = st.selectbox("Story Type", options=["Fantasy", "Fairy Tales", "Mythology", "Bedtime stories", "Adventure", "Mystery", "Love", "Horror", ])
         story_theme = st.text_input("What would be topic of the story?", placeholder="Leave brief idea of a story")
         moral_lesson = st.text_input("What would be the moral of this story?", placeholder="Enter moral lesson from this story")
         story_length = st.selectbox("Story Length (in words) ", options=["300", "400", "500"])
-        story_lang = st.selectbox("Story lang", options=["English", "Spanish", "French", "Mandarin","German", "Hindi","Vietnamese", "Tagalog", "Urdu", "Arabic"])
+        story_lang = st.selectbox("Story lang", options=["English", "Spanish", "French", "Mandarin","German", "Hindi","Vietnamese", "Tagalog", "Urdu", "Arabic", "Italian"])
         
         submit_btn = st.form_submit_button("Submit")
  
