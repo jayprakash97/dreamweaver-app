@@ -275,13 +275,13 @@ def main():
             # story_texts, captions = fetch_story_data(payload)
             decoded_images = fetch_and_decode_images(captions)
          
-            # audioStoryFiles = []
-            # for storyFile in storyfiles:
-            #     output = s3client.generate_presigned_url('get_object',
-            #                                         Params={'Bucket': 'wonderstorytexttoaudiofile',
-            #                                                 'Key': storyFile},
-            #                                         ExpiresIn=3600)
-            #     audioStoryFiles.append(output)
+            audioStoryFiles = []
+            for storyFile in storyfiles:
+                output = s3client.generate_presigned_url('get_object',
+                                                    Params={'Bucket': 'wonderstorytexttoaudiofile',
+                                                            'Key': storyFile},
+                                                    ExpiresIn=3600)
+                audioStoryFiles.append(output)
 
          
             # Reset the cache_cleared flag. Don't clear the cache
