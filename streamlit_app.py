@@ -394,6 +394,7 @@ def main():
         st.error(f"An error occurred: {str(e)}")
  
 if __name__ == "__main__":
+    st.set_page_config(page_title="WonderScribe", page_icon="📖", layout="wide")
     if "submit_btn" not in st.session_state:
         st.session_state.submit_btn = False
     main()
