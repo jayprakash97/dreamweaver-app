@@ -1,5 +1,4 @@
 import streamlit as st
-st.set_page_config(page_title="WonderScribe", page_icon="📖", layout="wide")
 from PIL import Image
 import requests
 import json
@@ -11,7 +10,7 @@ import requests
 import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
 
-
+#st.set_page_config(page_title="WonderScribe", page_icon="📖", layout="wide")
 
 # def get_aws_credentials():
 #     # Create a Secrets Manager client
