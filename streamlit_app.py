@@ -11,6 +11,16 @@ import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
 
 #st.set_page_config(page_title="WonderScribe", page_icon="📖", layout="wide")
+col1, col2  = st.columns(2, vertical_alignment="center")
+# col1, col2 = st.columns(2, horizontal_alignment="left")
+with col1:
+    st.image("pages/WS_Logo.png", width=200)
+with col2:
+    st.write("")
+   
+# Streamlit app title
+# st.title("Welcome to WonderScribe Page", font_size="20px")
+st.title("Welcome to WonderScribe Page")
 
 # def get_aws_credentials():
 #     # Create a Secrets Manager client
