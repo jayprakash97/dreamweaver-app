@@ -394,5 +394,6 @@ def main():
         st.error(f"An error occurred: {str(e)}")
  
 if __name__ == "__main__":
-    st.cache_data.clear()
+    if "submit_btn" not in st.session_state:
+        st.session_state.submit_btn = False
     main()
