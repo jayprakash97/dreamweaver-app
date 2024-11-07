@@ -1,6 +1,6 @@
 import streamlit as st
+st.set_page_config(page_title="WonderScribe", page_icon="📖", layout="wide")
 from PIL import Image
-import streamlit as st
 import requests
 import json
 import base64
@@ -10,6 +10,8 @@ from PIL import Image
 import requests
 import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
+
+
 
 # def get_aws_credentials():
 #     # Create a Secrets Manager client
@@ -120,8 +122,6 @@ def fetch_and_decode_images(captions, _force_refresh=False):
  
  
 def main():
-    st.set_page_config(page_title="WonderScribe", page_icon="📖", layout="wide")
-    
     if 'cache_cleared' not in st.session_state:
         st.session_state.cache_cleared = False
       
