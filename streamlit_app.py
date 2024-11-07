@@ -11,65 +11,12 @@ import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
 
 #st.set_page_config(page_title="WonderScribe", page_icon="📖", layout="wide")
-col1, col2  = st.columns(2, vertical_alignment="center")
-# col1, col2 = st.columns(2, horizontal_alignment="left")
-with col1:
-    st.image("pages/WS_Logo.png", width=200)
-with col2:
-    st.write("")
-   
-# Streamlit app title
-# st.title("Welcome to WonderScribe Page", font_size="20px")
-st.title("Welcome to WonderScribe Page")
 
-# def get_aws_credentials():
-#     # Create a Secrets Manager client
-#     client = boto3.client("secretsmanager", region_name="us-east-1")
-    
-#     # Retrieve the secret
-#     response = client.get_secret_value(SecretId="jaypeeidsecretcode")
-#     # response = client.get_secret_value(SecretId=st.secrets["streamlit_s3_credentials"])
-    
-#     secret_dict = json.loads(response["SecretString"])
-#     return secret_dict["AWS_ACCESS_KEY_ID"], secret_dict["AWS_SECRET_ACCESS_KEY"]
- 
-# # Use the retrieved credentials to access S3
-# aws_access_key_id, aws_secret_access_key = get_aws_credentials()
-
-# def get_aws_credentials():
-#     secret_name = "jaypeeidsecretcode"
-#     # Your secret name
-#     region_name = "us-east-1"
-#     # Replace with your region
-#     # Create a Secrets Manager client
-#     session = boto3.session.Session()
-#     client = session.client(service_name = 'secretsmanager', region_name = region_name)
-#     try:
-#         # Retrieve the secret value
-#         response = client.get_secret_value(SecretId = secret_name)
-#         # Decrypts secret using the associated KMS CMK
-#         secret = json.loads(response['SecretString'])
-#         # Extract AWS credentials
-#         aws_access_key_id = secret['AWS_ACCESS_KEY_ID']
-#         aws_secret_access_key = secret['AWS_SECRET_ACCESS_KEY']
-#         return aws_access_key_id, aws_secret_access_key
-#     except NoCredentialsError:
-# 	    st.text("Credentials not available.")
-# 	    raise
-#     except ClientError as e:
-# 	    st.text(f"Error retrieving secret: {e}")
-# 	    raise
-
-# aws_access_key_id, aws_secret_access_key = get_aws_credentials()
-
- 
 s3client = boto3.client(
     's3'
     # aws_access_key_id="",
     # aws_secret_access_key=""
 )
-    # aws_access_key_id=aws_access_key_id,
-    # aws_secret_access_key=aws_secret_access_key
 
 def image_decode(image_data_decode):
         image_data = base64.b64decode(image_data_decode)
