@@ -12,7 +12,6 @@ import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
 
 st.set_page_config(page_title="WonderScribe", page_icon="📖", layout="wide")
-
 # def get_aws_credentials():
 #     # Create a Secrets Manager client
 #     client = boto3.client("secretsmanager", region_name="us-east-1")
